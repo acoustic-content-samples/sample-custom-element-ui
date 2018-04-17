@@ -1,0 +1,75 @@
+.js-Dropdown {
+    font-family: Helvetica, Arial, sans-serif;
+    display: inline-block;
+    position: relative;
+    width: 500px;
+    color: #595859;
+    box-shadow: none;
+    outline: none;
+}
+.js-Dropdown-title {
+    background: #ffffff;
+    border: 1px groove #a5a5a5;
+    box-sizing: border-box;
+    cursor: pointer;
+    font: 400 14px sans-serif;
+    padding: 0 10px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    height: 30px;
+    color: #595859;
+    box-shadow: none;
+    outline: none;
+}
+.js-Dropdown-title:focus {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #777677;
+}
+.js-Dropdown-title:after {
+    content:"";
+    background-image: url(Chevron-Down-16px.svg);
+    display: block;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.js-Dropdown-list {
+    background: #fff;
+    box-sizing: border-box;
+    display: none;
+    height: 0;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    transition: .2s linear;
+    width: 100%;
+    z-index: 999;
+    line-height: 30px;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+}
+.js-Dropdown-list.is-open {
+    display: block;
+    height: auto;
+    opacity: 1;
+}
+.js-Dropdown-list li {
+    cursor: pointer;
+    padding: 0 30px;
+    height: 30px;
+}
+.js-Dropdown-list li:hover {
+    background-color: #eef5ff;
+    border-left: 1px solid #2d74da;
+    padding: 0 29px;
+}
+.js-Dropdown-list li.is-selected {
+    background-color: #eef5ff;
+    border-left: 3px solid #2d74da;
+    padding: 0 27px;
+    font-weight: 700;
+}

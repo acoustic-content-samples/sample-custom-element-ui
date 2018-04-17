@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Vanilla JavaScript Dropdown</title>
+    <link rel="stylesheet" href="vanilla-js-dropdown.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vanilla-js-dropdown.js"></script>
+    <script>
+        $.get("https://itunes.apple.com/search?term=jack+johnson&limit=25",
+                function(data){
+                    var $select = $('#select');
+                    data = $.parseJSON(data);
+                    $.each(data.results, function(i, item) {
+                        $select.append('<option value=' + i + '>' + item.trackName + '</option>');
+                    });
+                    new VanillaSelect({ elem: 'select' });
+                });
+    </script>
+</head>
+<body>
+
+<select id="select"></select>
+
+</body>
+</html>
