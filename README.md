@@ -26,5 +26,5 @@ From the root directory of this repository run
 
 Next enable one of your content types to display the UI extension by setting
 
-```"ui-extensions": {"elements":"/dxauth/ui-extension-dropdown/index.html"}```
+```"ui-extensions": {"element":"/dxauth/ui-extension-dropdown/index.html"}```
 
