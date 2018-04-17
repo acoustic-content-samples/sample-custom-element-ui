@@ -6,33 +6,39 @@
     <link rel="stylesheet" href="vanilla-js-dropdown.css">
     <script src="vanilla-js-dropdown.js"></script>
     <script>
-        fetch("https://itunes.apple.com/search?term=jack+johnson&limit=25&" + new Date().getTime())
+        // Hit Itunes API and get Songs by the Beatles
+        fetch("https://itunes.apple.com/search?term=beatles&limit=25&" + new Date().getTime())
                 .then(function(response) {
                     return response.json();
                 })
                 .then(function(jsonResponse) {
-                    console.log("API call - jsonResponse", jsonResponse);
+                    // Process response
                     var jsonData = jsonResponse.results;
-                    if (!jsonData || jsonData.length == 0) { jsonData = [{"trackName":"track1"},{"trackName":"track2"}];}
+                    // Insert dummy data in the case that the API call fails.
+                    if (!jsonData || jsonData.length == 0) { jsonData = [{"trackName":"Let It Be"},{"trackName":"Hey Jude"}];}
+
+                    // Create <select>
                     var selectDiv = document.getElementById('selectDiv');
                     var select = document.createElement("select");
                     select.id = "select";
                     selectDiv.appendChild(select);
-                    jsonData.forEach(function(item, i) {
-                        console.log("append", item);
-                        //select.append('<option value=' + i + '>' + item.trackName + '</option>');
 
+                    // Add <option>s
+                    jsonData.forEach(function(item, i) {
                         var option = document.createElement("option");
                         option.text = item.trackName;
                         option.value = i;
                         select.add(option);
                     });
+
+                    // Style the <select> dropdown and add the JS.
                     new VanillaSelect({ elem: 'select' });
                 });
     </script>
 </head>
 <body>
 
+<!-- Div to attach the <select> to -->
 <div id="selectDiv"></div>
 
 </body>

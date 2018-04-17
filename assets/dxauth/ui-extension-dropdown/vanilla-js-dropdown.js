@@ -1,6 +1,7 @@
 /**
  * @description
- * Vanilla JavaScript dropdown - a tiny (~600 bytes gzipped) select tag replacement.
+ * Tiny Vanilla JavaScript dropdown styled as per the
+ * dropdown selectors in the Watson Content Hub UI.
  *
  * @class
  * @param {(string|Object)} options.elem - HTML id of the select or the DOM element.
