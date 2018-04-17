@@ -4,15 +4,28 @@
     <meta charset="utf-8">
     <title>Vanilla JavaScript Dropdown</title>
     <link rel="stylesheet" href="vanilla-js-dropdown.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="vanilla-js-dropdown.js"></script>
     <script>
-        $.get("https://itunes.apple.com/search?term=jack+johnson&limit=25",
-                function(data){
-                    var $select = $('#select');
-                    data = $.parseJSON(data);
-                    $.each(data.results, function(i, item) {
-                        $select.append('<option value=' + i + '>' + item.trackName + '</option>');
+        fetch("https://itunes.apple.com/search?term=jack+johnson&limit=25&" + new Date().getTime())
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(jsonResponse) {
+                    console.log("API call - jsonResponse", jsonResponse);
+                    var jsonData = jsonResponse.results;
+                    if (!jsonData || jsonData.length == 0) { jsonData = [{"trackName":"track1"},{"trackName":"track2"}];}
+                    var selectDiv = document.getElementById('selectDiv');
+                    var select = document.createElement("select");
+                    select.id = "select";
+                    selectDiv.appendChild(select);
+                    jsonData.forEach(function(item, i) {
+                        console.log("append", item);
+                        //select.append('<option value=' + i + '>' + item.trackName + '</option>');
+
+                        var option = document.createElement("option");
+                        option.text = item.trackName;
+                        option.value = i;
+                        select.add(option);
                     });
                     new VanillaSelect({ elem: 'select' });
                 });
@@ -20,7 +33,7 @@
 </head>
 <body>
 
-<select id="select"></select>
+<div id="selectDiv"></div>
 
 </body>
 </html>
