@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 - Classic editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/classic/ckeditor.js"></script>
+</head>
+<body>
+    <textarea name="content" id="editor">
+    </textarea>
+<script>
+    ClassicEditor.create(document.querySelector('#editor')).catch(error => {console.error(error);});
+    editor.setData('Initial HTML value');
+
+    // Save every five seconds
+    setInterval(function(){
+        const data = editor.getData();
+        // SAVE
+    }, 5000);
+</script>
+</body>
+</html>
