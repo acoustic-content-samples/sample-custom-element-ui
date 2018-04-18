@@ -35,6 +35,10 @@
     right: 10px;
     top: 5px;
 }
+
+.js-Dropdown-title.is-open:after {
+    background-image: url(Chevron-Up-16px.svg);
+}
 .js-Dropdown-list {
     background: #fff;
     box-sizing: border-box;

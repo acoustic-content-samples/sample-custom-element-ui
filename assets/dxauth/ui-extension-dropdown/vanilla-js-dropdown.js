@@ -106,6 +106,7 @@ var VanillaSelect = function(options) {
      */
     function toggle() {
         ul.classList.toggle(openClass);
+        button.classList.toggle(openClass);
     }
 
     /**
@@ -115,6 +116,7 @@ var VanillaSelect = function(options) {
      */
     function open() {
         ul.classList.add(openClass);
+        button.classList.add(openClass);
     }
 
     /**
@@ -124,6 +126,7 @@ var VanillaSelect = function(options) {
      */
     function close() {
         ul.classList.remove(openClass);
+        button.classList.remove(openClass);
     }
 
     return {

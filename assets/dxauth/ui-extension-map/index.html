@@ -2,21 +2,37 @@
 <html>
 <body>
 
-<div id="googleMap" style="width:100%;height:400px;"></div>
+<div id="map" style="width:100%;height:400px;"></div>
 
 <script>
     function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(-32.7681293,145.356028),
-            zoom:5,
+        var currentLatLng = {lat: -32.7681293, lng: 145.356028};
+        var mapProps = {
+            center : currentLatLng,
+            zoom : 5
         };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        var map = new google.maps.Map(document.getElementById('map'), mapProps);
+
+        // Add marker for the currently selected location
+        var marker = new google.maps.Marker({
+            position: currentLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+
+        // Add listener to select a new location
+        google.maps.event.addListener(map, 'click', function( event ){
+
+            alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+            marker.setPosition(event.latLng);
+        });
     }
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc4uwEYq-jN_orD7ogN9lPqOw0LW6OiBQ&callback=myMap"></script>
 <!--
-To use this code on your website, get a free API key from Google.
+To use this sample in your Watson Content Hub UI, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
 
