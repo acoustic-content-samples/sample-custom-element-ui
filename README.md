@@ -33,8 +33,8 @@ or by using the user interface.
 
 A sample that provides a custom dropdown where the seletions come from a 3rd party Rest API. The dropdown can be used
 within a content item to select a value for the content element. The dropdown is styled to look
-like the other dropdowns in the WCH UI, such as for the options selection element. It is written in 'vanilla JS' with no framework
-dependencies. The selection is stored in a text element.
+like the other dropdowns in the WCH UI, such as for the options selection element. The sample is written in 'vanilla JS'
+(http://vanilla-js.com/) with no framework dependencies. The selection is stored in a text element.
 
 The selections come from the Apple iTunes API, which does not require an API Key.
 
@@ -58,7 +58,8 @@ Based on example at https://developers.google.com/maps/documentation/javascript/
 Replace the API key index.html with your Google API key by following the instructions here:
 https://developers.google.com/maps/documentation/javascript/get-api-key
 
-It would also be possible to use an alternative mapping API such as OpenMaps.
+It would also be possible to use an alternative mapping API such as OpenMaps. The sample is written in 'vanilla JS'
+(http://vanilla-js.com/) with no framework dependencies.
 
 ### Rich text editor
 
@@ -68,6 +69,7 @@ Based on the CKEditor5 'Classic editor' at: https://docs.ckeditor.com/ckeditor5/
 
 Equally, it would be possible to use any other Rich Text Editor, such as TextboxIO, TinyMCE, CKEditor4 etc. The websites for
 each of the rich text editors provide a UI to customise the editor and then download a customised version of the editor which
-can then be used by uploading it as an asset in WCH, in the same way that this sample does.
+can then be used by uploading it as an asset in WCH, in the same way that this sample does. The sample is written in 'vanilla JS'
+(http://vanilla-js.com/) with no framework dependencies.
 
 

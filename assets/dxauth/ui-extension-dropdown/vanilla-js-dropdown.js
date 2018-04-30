@@ -105,8 +105,13 @@ var VanillaSelect = function(options) {
      * @public
      */
     function toggle() {
-        ul.classList.toggle(openClass);
-        button.classList.toggle(openClass);
+        if (ul.classList.contains(openClass)) {
+            // Currently open
+            close();
+        } else {
+            // Currently closed
+            open();
+        }
     }
 
     /**
@@ -117,6 +122,7 @@ var VanillaSelect = function(options) {
     function open() {
         ul.classList.add(openClass);
         button.classList.add(openClass);
+        wch.setHeight(400);
     }
 
     /**
@@ -127,6 +133,7 @@ var VanillaSelect = function(options) {
     function close() {
         ul.classList.remove(openClass);
         button.classList.remove(openClass);
+        wch.setHeight(100);
     }
 
     return {

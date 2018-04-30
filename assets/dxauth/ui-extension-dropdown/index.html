@@ -4,7 +4,13 @@
     <meta charset="utf-8">
     <title>Vanilla JavaScript Dropdown</title>
     <link rel="stylesheet" href="vanilla-js-dropdown.css">
+    <script src='../ui-extension-sdk/post-robot.js'></script>
+    <script src='../ui-extension-sdk/wch-ui-extension.js'></script>
     <script src="vanilla-js-dropdown.js"></script>
+</head>
+<body>
+    <!-- Div to attach the <select> to -->
+    <div id="selectDiv"></div>
     <script>
         // Hit Itunes API and get Songs by the Beatles
         fetch("https://itunes.apple.com/search?term=beatles&limit=10&" + new Date().getTime())
@@ -35,10 +41,5 @@
                     new VanillaSelect({ elem: 'select' });
                 });
     </script>
-</head>
-<body>
-<!-- Div to attach the <select> to -->
-<div id="selectDiv"></div>
-
 </body>
 </html>
