@@ -21,11 +21,16 @@ From the root directory of this repository run
 
 ```wchtools push -A -v -f```
 
-Next enable one of your content types to display the UI extension by setting
+Next enable one of your content types to display the UI extension. Create a text element. On the custom display tab, set the
+UI extension property as the URL of the iframe, for example:
+
+``` /dxauth/ui-extension-dropdown/index.html"} ```
+
+Alternatively, set the property on the element in the content type using the CLI like this:
 
 ```"ui-extensions": {"element":"/dxauth/ui-extension-dropdown/index.html"}```
 
-or by using the user interface.
+and then push the content type into the hub.
 
 ## The plugins
 
@@ -72,4 +77,18 @@ each of the rich text editors provide a UI to customise the editor and then down
 can then be used by uploading it as an asset in WCH, in the same way that this sample does. The sample is written in 'vanilla JS'
 (http://vanilla-js.com/) with no framework dependencies.
 
+## Creating you own UI Extension
+
+To create you own UI extension, copy the pattern from the samples. Push the UI extension SDK into the /dxauth/ui-extension-sdk
+folder. If you've installed the above sample in your hub, then this step is already done.
+
+Include the Javascript for the SDKs in your index.html using:
+
+```<script src='../ui-extension-sdk/post-robot.js'></script>```
+```<script src='../ui-extension-sdk/wch-ui-extension.js'></script>```
+
+For information on how to use the SDK, see (TODO - Add link to SDK.)
+
+Write your UI extension and push the assets into the hub, as per the above instructions for the samples. Finally,
+enable the UI extension in the content type that is using it.
 
