@@ -1,3 +1,5 @@
+# DEPRECATED - will be deleted. See individual ui extensions samples.
+
 # Sample UI Extensions
 
 A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customised the
