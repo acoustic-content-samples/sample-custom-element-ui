@@ -1,5 +1,3 @@
-# DEPRECATED - will be deleted. See individual ui extensions samples.
-
 # Sample UI Extensions
 
 A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customised the
@@ -11,28 +9,6 @@ user interface of an element.
 
 Simply open the index.html file for any of the examples in your browser using your file explorer or IDE. There is no
 build required.
-
-## Install the sample into Watson Content Hub
-
-Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
-
-Note: make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
-From the root directory, run npm run build and npm run deploy.
-
-From the root directory of this repository run
-
-```wchtools push -A -v -f```
-
-Next enable one of your content types to display the UI extension. Create a text element. On the custom display tab, set the
-UI extension property as the URL of the iframe, for example:
-
-``` /dxauth/ui-extension-dropdown/index.html"} ```
-
-Alternatively, set the property on the element in the content type using the CLI like this:
-
-```"ui-extensions": {"element":"/dxauth/ui-extension-dropdown/index.html"}```
-
-and then push the content type into the hub.
 
 ## The plugins
 
@@ -79,17 +55,22 @@ each of the rich text editors provide a UI to customise the editor and then down
 can then be used by uploading it as an asset in WCH, in the same way that this sample does. The sample is written in 'vanilla JS'
 (http://vanilla-js.com/) with no framework dependencies.
 
+### Category selector
+
+A samples that extends the Authoring interface of Watson Content Hub to provide a category selector. The selections are hardcoded as a JSON file in the sample, but can easily be customised to come from a 3rd party Rest API. The multi-level category selection widget is styled to look like the other dropdowns in the WCH UI, such as for the category element. 
+
 ## Creating you own UI Extension
 
-To create you own UI extension, copy the pattern from the samples. Push the UI extension SDK into the /dxauth/ui-extension-sdk
-folder. If you've installed the above sample in your hub, then this step is already done.
+To create you own UI extension, copy the pattern from the samples.
 
 Include the Javascript for the SDKs in your index.html using:
 
-```<script src='../ui-extension-sdk/post-robot.js'></script>```
-```<script src='../ui-extension-sdk/wch-ui-extension.js'></script>```
+```html
+<script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
+<script src="https://unpkg.com/@ibm-wch/ui-extensions/dist/ibm-wch-sdk-ui-extensions.js"></script>
+```
 
-For information on how to use the SDK, see (TODO - Add link to SDK.)
+For information on how to use the SDK, see [ibm-wch-sdk-ui-extensions](https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions).
 
 Write your UI extension and push the assets into the hub, as per the above instructions for the samples. Finally,
 enable the UI extension in the content type that is using it.
