@@ -74,3 +74,6 @@ ui-test-reports/*
 
 package-lock.json
 .nvmrc
+
+.wchtoolshashes
+content-artifacts/resources
