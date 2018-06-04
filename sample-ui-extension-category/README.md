@@ -13,7 +13,7 @@ From the root directory, run npm run build and npm run deploy.
 
 Download this repository. From the ```content-artifacts``` directory of this repository run
 
-```wchtools push -A -v -f -I```
+```wchtools push -A -v -f```
 
 The "Custom Category" element is now available for use in your content types. This element can then be included in other content types.
 
@@ -29,7 +29,7 @@ To use the "Custom Category" element, update the "Custom display for the canvas"
 
 Fork and then download the sample. To run the sample locally, simply open the ```index.html``` file in your browser using your file explorer or IDE. There is no build required. Edit the files and refresh the browser to test the extension. When the changes are complete, push the updated extension back to the hub.
 
-Edit the JavaScript in the file content-artifacts/assets/dxauth/ui-extension-category/index.html to customise the sample according to the URL, authentication mechanism and JSON response of the Rest API that you intend to use.
+Edit the HTML and directives in `content-artifacts/assets/dxauth/ui-extension-category/index.html` and the JavaScript in `content-artifacts/assets/dxauth/ui-extension-category/js/category.js` to customise the sample according to the URL, authentication mechanism and JSON response of the Rest API that you intend to use.
 
 ## The UI extensions SDK
 

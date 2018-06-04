@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2018
+ */
+
 function myMap() {
     var currentLatLng = {lat: -32.7681293, lng: 145.356028};
 

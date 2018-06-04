@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2018
+ */
+ 
 var editorPromise = ClassicEditor.create(document.querySelector('#editor'));
 
 editorPromise.then(editor => {

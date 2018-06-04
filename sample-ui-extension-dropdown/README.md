@@ -15,7 +15,7 @@ From the root directory, run npm run build and npm run deploy.
 
 Download this repository. From the root directory of this repository run
 
-```wchtools push -A -v -f -I```
+```wchtools push -A -v -f```
 
 A new "Song selection" element will now be available in the content type palette. This element can then be included in other content types.
 

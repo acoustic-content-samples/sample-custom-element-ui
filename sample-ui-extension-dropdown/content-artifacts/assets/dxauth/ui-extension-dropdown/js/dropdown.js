@@ -1,4 +1,6 @@
 /**
+ * Copyright IBM Corp. 2018
+ * 
  * @description
  * Tiny Vanilla JavaScript dropdown styled as per the
  * dropdown selectors in the Watson Content Hub UI.

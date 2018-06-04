@@ -19,7 +19,7 @@ From the root directory, run npm run build and npm run deploy.
 
 Download this repository. From the ```content-artifacts``` directory of this repository run
 
-```wchtools push -A -v -f -I```
+```wchtools push -A -v -f```
 
 The "Map location" element is now available for use in your content types.
 

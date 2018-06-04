@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2018
+ */
+
 'use strict';
 var textInput = document.querySelector('#mail');
 var cachedValue = '';

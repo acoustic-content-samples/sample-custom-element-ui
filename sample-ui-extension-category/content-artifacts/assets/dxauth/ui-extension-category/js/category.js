@@ -1,3 +1,7 @@
+/*
+ * Copyright IBM Corp. 2018
+ */
+ 
 var app = angular.module('app', [
     'ui.bootstrap',
     'category',
