@@ -1,0 +1,37 @@
+body {
+    font-family: Helvetica Neue Roman for IBM, Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.email-input {
+    display: block;
+    width: 500px;
+    height: 30px;
+    padding: 0 10px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #595859;
+    background-color: #fff;
+    border-radius: 0;
+    border: 1px solid #777677;
+    -webkit-box-shadow: inset 0 0 0 1px transparent, inset 0 0 0 2px transparent;
+    box-shadow: inset 0 0 0 1px transparent, inset 0 0 0 2px transparent;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.email-input:focus {
+    -webkit-box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #2d74da;
+    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #2d74da;
+    border-color: #777677;
+    outline: 0;
+}
+
+.valid {
+    background: url("../images/check.svg") 99% center no-repeat;
+}
+
+.invalid {
+    background: url("../images/cross.svg") 99% center no-repeat;
+}

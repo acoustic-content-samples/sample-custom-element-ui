@@ -1,0 +1,21 @@
+{
+  "name": "Custom category",
+  "classification": "content-type",
+  "path": "/CustomCategory.json",
+  "kind": [
+    "embedded"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "text",
+      "label": "Category",
+      "key": "category"
+    }
+  ],
+  "uiExtensions": {
+    "element": "<Hub Delivery URL>/dxauth/ui-extension-category/index.html"
+  }
+}

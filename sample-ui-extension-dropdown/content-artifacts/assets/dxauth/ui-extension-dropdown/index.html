@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vanilla JavaScript Dropdown</title>
+        <link rel="stylesheet" href="css/dropdown.css">
+        <script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
+        <script src="https://unpkg.com/@ibm-wch/ui-extensions/dist/ibm-wch-sdk-ui-extensions.js"></script>
+        <script src="js/dropdown.js"></script>
+    </head>
+    <body>
+        <!-- Div to attach the <select> to -->
+        <div id="selectDiv"></div>
+        <div id="tagDiv">
+            <span class="single-tag">
+                <span class="tag-text" id="tagText"></span>
+            </span>
+        </div>
+        <script>
+            // Hit Itunes API and get Songs by the Beatles
+            fetch("https://itunes.apple.com/search?term=beatles&limit=10&" + new Date().getTime())
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(jsonResponse) {
+                    // Process response
+                    var jsonData = jsonResponse.results;
+                    // Insert dummy data in the case that the API call fails.
+                    if (!jsonData || jsonData.length == 0) { jsonData = [{"trackName":"Let It Be"},{"trackName":"Hey Jude"}];}
+
+                    // Create <select>
+                    var selectDiv = document.getElementById('selectDiv');
+                    var select = document.createElement("select");
+                    select.id = "select";
+                    selectDiv.appendChild(select);
+
+                    // Add <option>s
+                    jsonData.forEach(function(item, i) {
+                        var option = document.createElement("option");
+                        option.text = item.trackName;
+                        option.value = i;
+                        select.add(option);
+                    });
+
+                    // Style the <select> dropdown and add the JS.
+                    new VanillaSelect({ elem: 'select' });
+                });
+        </script>
+    </body>
+</html>

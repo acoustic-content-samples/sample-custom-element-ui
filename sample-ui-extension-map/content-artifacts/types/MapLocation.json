@@ -1,0 +1,21 @@
+{
+  "name": "Map location",
+  "classification": "content-type",
+  "path": "/MapLocation.json",
+  "kind": [
+    "embedded"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "location",
+      "label": "Location",
+      "key": "location"
+    }
+  ],
+  "uiExtensions": {
+    "element": "<Hub Delivery URL>/dxauth/ui-extension-map/index.html"
+  }
+}

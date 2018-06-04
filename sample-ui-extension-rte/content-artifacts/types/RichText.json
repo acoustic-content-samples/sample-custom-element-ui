@@ -1,0 +1,21 @@
+{
+  "name": "Rich text",
+  "classification": "content-type",
+  "path": "/RichText.json",
+  "kind": [
+    "embedded"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "formattedtext",
+      "label": "Text",
+      "key": "text"
+    }
+  ],
+  "uiExtensions": {
+    "element": "<Hub Delivery URL>/dxauth/ui-extension-rte/index.html"
+  }
+}

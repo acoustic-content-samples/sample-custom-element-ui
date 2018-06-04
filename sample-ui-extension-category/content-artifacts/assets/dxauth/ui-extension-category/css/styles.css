@@ -1,0 +1,287 @@
+/*Global*/
+body {
+    font-family: "Helvetica Neue Roman for IBM", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #595859;
+    background-color: #fff;
+    padding: 10px 0 10px 0;
+}
+
+/*General*/
+.btn {
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 26px;
+    height: 30px;
+    border-radius: 0;
+    font-size: 14px;
+    font-family: "Helvetica Neue Roman for IBM", Helvetica, Arial, sans-serif;
+    border-width: 2px;
+    border-radius: 0;
+}
+
+.btn-group[dropdown] > .btn {
+    border-width: 1px;
+    padding: 0 10px;
+}
+
+.btn-default {
+    background: #fff;
+    border-color: #777677;
+    color: #595859;
+}
+
+.open>.dropdown-toggle.btn-default {
+    background: #fff;
+    border-color: #777677;
+    color: #595859;
+}
+
+.btn-default:focus, .btn-default:hover, .btn-default:active, .btn-default.active.focus,
+.btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus,
+.btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #777677;
+    background-color: #fff;
+    border-color: #777677;
+    color: #595859;
+}
+
+.btn[dropdown-toggle] {
+    line-height: 28px;
+}
+.btn-group[dropdown] > .btn[dropdown-toggle]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e259";
+    padding-left: 20px;
+}
+
+.btn-group[dropdown] .btn[dropdown-toggle]:active:after, .btn-group[dropdown].open .btn[dropdown-toggle]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e260";
+    padding-left: 20px;
+}
+
+.pull-right, .btn-group[dropdown] > .btn[dropdown-toggle]:after {
+    float: right;
+}
+
+/*Element*/
+.auth-category {
+    display: flex;
+}
+
+.auth-category .btn-group {
+    width: 100%;
+}
+
+.auth-category .dropdown-toggle {
+    width: 100%;
+}
+
+.auth-category .category-list {
+    padding-top: 10px;
+}
+
+.auth-category .category-list .tag-component {
+    margin-right: 10px;
+}
+
+/*Hierarchy Selector*/
+
+.dropdown-menu {
+    min-width: 175px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+    overflow-y: auto;
+    max-height: 320px;
+}
+.VisualFocus {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hierarchy-selector {
+    list-style: none;
+    background: white;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+}
+
+.hierarchy-selector li {
+    display: none;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.hierarchy-selector li span {
+    cursor: pointer;
+}
+
+.hierarchy-selector ul {
+    margin: 0;
+    padding: 0;
+}
+
+.hierarchy-selector .shownList li {
+    display: block;
+    line-height: 30px;
+    position: relative;
+}
+
+.hierarchy-selector .shownList li:hover {
+    background-color: #eef4fe;
+}
+
+.hierarchy-selector .shownList li:focus {
+    background-color: #eef4fe;
+}
+
+.hierarchy-selector .shownList ul {
+    display: none;
+}
+
+.hierarchy-selector .shownList li span {
+    display: block;
+}
+
+.hierarchy-selector .childOpened {
+    display: block;
+}
+
+.hierarchy-selector .childOpened span {
+    display: none;
+}
+
+.hierarchy-selector .childOpened li {
+    padding: 0px;
+}
+
+.hierarchy-selector .openedRoot {
+    display: inline-block !important;
+    line-height: 30px;
+    padding: 0px 10px 0px 10px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hierarchy-selector .openedRoot svg {
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    fill: #777677;
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .hierarchy-selector .openedRoot svg {
+        fill: #fff;
+    }
+}
+
+.hierarchy-selector .openedRoot:hover {
+    background-color: #eef4fe;
+}
+
+.hierarchy-selector .openedRoot:focus {
+    background-color: #eef4fe;
+}
+
+.hierarchy-selector .unselectableItem:hover {
+    background-color: initial;
+}
+
+.hierarchy-selector .unselectableItem:focus {
+    background-color: initial;
+}
+
+.hierarchy-selector .selectedItem {
+    font-weight: bold;
+    border-color: #4178be;
+    background-color: #eef4fe;
+    border-left: 2px solid;
+}
+
+.hierarchy-selector .drillIn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+
+.hierarchy-selector .drillIn svg {
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    fill: #777677;
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .hierarchy-selector .drillIn svg {
+        fill: white;
+    }
+}
+.hierarchy-selector .drillIn:focus {
+    background-color: #eef4fe;
+}
+
+/*Tags*/
+.category-list {
+    padding-top: 10px;
+}
+.tag-component {
+    margin-right: 10px;
+    display: inline-block;
+}
+.single-tag {
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #2d74da;
+    font-size: 14px;
+    padding: 0 50px 0 10px;
+    color: #2d74da;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    max-width: 200px;
+    white-space: nowrap;
+}
+.tag-text {
+    white-space: pre;
+}
+.tag-remove-icon {
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
+    border: 1px none #2d74da;
+    font-size: 0;
+}
+.tag-remove-icon:focus {
+    top:4px;
+    right: 9px;
+    border-style: dashed;
+}
+.single-tag svg {
+    display: block;
+    fill: #2d74da;
+    width: 20px;
+    height: 20px;
+}
+.without-remove-btn {
+    padding-right: 10px;
+}

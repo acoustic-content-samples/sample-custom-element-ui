@@ -1,0 +1,21 @@
+{
+  "name": "Email",
+  "classification": "content-type",
+  "path": "/Email.json",
+  "kind": [
+    "embedded"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "text",
+      "label": "Email address",
+      "key": "emailAddress"
+    }
+  ],
+  "uiExtensions": {
+    "element": "<Hub Delivery URL>/dxauth/ui-extension-email/index.html"
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+        <script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
+        <script src="https://unpkg.com/@ibm-wch/ui-extensions/dist/ibm-wch-sdk-ui-extensions.js"></script>
+        <script src="js/category.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div ng-controller="categoryController as Category">
+            <div class="auth-category element-responsive-width" ng-hide="Category.isPublished">
+                <div class="btn-group"
+                    dropdown uib-dropdown
+                    is-open="status.isopen"
+                    ng-click="Category.toggleDropdown()">
+                    <button type="button" role="button"
+                        id="single-button"
+                        class="btn dropdown-toggle btn-default"
+                        dropdown-toggle uib-dropdown-toggle>
+                        <em class="select-placeholder pull-left">
+                            Select category
+                        </em>
+                    </button>
+                    <div role="menu" class="dropdown-menu" uib-dropdown-menu aria-labelledby="single-button">
+                        <div class="hierarchy-selector" role="menu">
+                            <ul tabindex="-1" role="group" ng-class="{'shownList': Category.isNoRoot()}">
+                                <li class="VisualFocus" role="menuitem" tabindex="-1" ng-repeat="category in Category.parsedData" ng-class="{'childOpened': Category.isOnPath(category)}" ng-include="'categoryTree'"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="category-list">
+                <div ng-repeat="selectedCategory in selectedCategories"
+                    ng-if="selectedCategory"
+                    class="tag-component">
+                    <span class="single-tag" ng-class="{'without-remove-btn': Category.isPublished}">
+                        <span title="{{ selectedCategory.name }}" class="tag-text">{{ selectedCategory.name }}</span>
+                        <button role="button"
+                            class="tag-remove-icon"
+                            ng-click="Category.removeTag(selectedCategory)"
+                            ng-hide="Category.isPublished"
+                            aria-label="Remove"
+                            title="Remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M18 3.1L16.9 2 10 8.9 3.1 2 2 3.1 8.9 10 2 16.9 3.1 18l6.9-6.9 6.9 6.9 1.1-1.1-6.9-6.9z"/>
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/ng-template" id="categoryTree">
+            <div>
+                <span class="VisualFocus"
+                    ng-class="{'openedRoot': Category.isCurrentRoot(category)}"
+                    ng-show="Category.isCurrentRoot(category)"
+                    ng-click="Category._goUp($event)"
+                    tabindex="0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M14.2 19.4l.8-.8L6.4 10 15 1.4l-.8-.8L4.7 10z"/>
+                    </svg>
+                    Back
+                </span>
+            </div>
+            <!-- When an item is selected as current root, click on the name means go back to previous level. -->
+            <span class="VisualFocus itemName"
+                ng-class="{'openedRoot': Category.isCurrentRoot(category), 'selectedItem': Category.isItemSelected(category) && !Category.isCurrentRoot(category), 'unselectableItem': !Category.isItemSelectable(category)}"
+                ng-click="Category._selectItem(category, $event)"
+                ng-if="Category.isCurrentRoot(category)">{{ category.name }}</span>
+            <!-- When an item is shown in a list, click on the name means select this item -->
+            <span class="VisualFocus itemName"
+                ng-class="{'openedRoot': Category.isCurrentRoot(category), 'selectedItem': Category.isItemSelected(category) && !Category.isCurrentRoot(category)}"
+                ng-click="Category._selectItem(category, $event)"
+                ng-if="!Category.isCurrentRoot(category) && !category.children">{{ category.name }}</span>
+            <!-- When an item is shown in a list and has children, click on the name means drill in -->
+            <span class="VisualFocus itemName"
+                ng-class="{'openedRoot': Category.isCurrentRoot(category), 'selectedItem': Category.isItemSelected(category) && !Category.isCurrentRoot(category)}"
+                ng-click="Category._changeRoot(category, $event)"
+                ng-if="!Category.isCurrentRoot(category) && category.children">{{ category.name }}</span>
+            <span class="drillIn"
+                ng-if="category.children"
+                ng-click="Category._changeRoot(category, $event)"
+                tabindex="-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M5.6 19.4l-.9-.8 8.6-8.6-8.6-8.6.9-.8L15 10z"/>
+                </svg>
+            </span>
+            <ul tabindex="-1" role="group" ng-if="category.children" ng-class="{'shownList': Category.isCurrentRoot(category)}">
+                <li class="VisualFocus" tabindex="-1" ng-repeat="category in category.children" ng-class="{'childOpened': Category.isOnPath(category)}" ng-include="'categoryTree'"></li>
+            </ul>
+        </script>
+    </body>
+</html>

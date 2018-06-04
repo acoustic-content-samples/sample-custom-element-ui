@@ -1,0 +1,21 @@
+{
+  "name": "Song selection",
+  "classification": "content-type",
+  "path": "/SongSelection.json",
+  "kind": [
+    "embedded"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "text",
+      "label": "Selection",
+      "key": "selection"
+    }
+  ],
+  "uiExtensions": {
+    "element": "<Hub Delivery URL>/dxauth/ui-extension-dropdown/index.html"
+  }
+}
