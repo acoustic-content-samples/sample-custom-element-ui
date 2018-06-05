@@ -1,12 +1,10 @@
 /**
  * Copyright IBM Corp. 2018
  */
- 
+
 var editorPromise = ClassicEditor.create(document.querySelector('#editor'));
 
 editorPromise.then(editor => {
-    editor.setData('Initial HTML value');
-
     // Disable the rich text editor and show the formatted text
     wchUIExt.getDefinition().then((item) => {
         console.log(item);
@@ -28,8 +26,8 @@ editorPromise.then(editor => {
                 }
             });
 
-            // Save every five seconds
-            setInterval(function(){
+            // Save when the editor loses focus
+            editor.ui.focusTracker.on('change:isFocused', () => {
                 const data = editor.getData();
                 console.log(data);
                 wchUIExt.setElement({
@@ -41,7 +39,7 @@ editorPromise.then(editor => {
                         }
                     }
                 });
-            }, 5000);
+            });
         }
     });
 
