@@ -1,6 +1,6 @@
 /**
  * Copyright IBM Corp. 2018
- * 
+ *
  * @description
  * Tiny Vanilla JavaScript dropdown styled as per the
  * dropdown selectors in the Watson Content Hub UI.
@@ -34,6 +34,9 @@ var VanillaSelect = function(options) {
     // creating the UL
     var ul = document.createElement('ul');
     ul.className = listClass;
+
+    // Set default height for dropdown
+    wchUIExt.requestResizeFrame(30);
 
     // get a previously set selected dropdown value
     wchUIExt.getElement().then((element) => {
