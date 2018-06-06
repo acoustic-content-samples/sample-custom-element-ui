@@ -12,7 +12,9 @@
     {
       "elementType": "text",
       "label": "Category",
-      "key": "category"
+      "key": "category",
+      "allowMultipleValues": true,
+      "minimumValues": 0
     }
   ],
   "uiExtensions": {

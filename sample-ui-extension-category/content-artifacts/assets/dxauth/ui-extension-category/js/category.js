@@ -262,8 +262,8 @@ var CategoryController = function ($scope, $http) {
         wchUIExt.getDefinition().then((definition) => {
             wchUIExt.getElement().then((element) => {
                 if (definition.elementType === "group") {
-                    if (element.value["category"].value) {
-                        let categoryIds = element.value["category"].value.split(";");
+                    if (element.value["category"].values) {
+                        let categoryIds = element.value["category"].values;
                         let categories = $scope.categories.filter(item => {
                             return categoryIds.indexOf(item.id) > -1;
                         });
@@ -271,8 +271,8 @@ var CategoryController = function ($scope, $http) {
                         $scope.$apply();
                     }
                 } else {
-                    if (element.value) {
-                        let categoryIds = element.value.split(";");
+                    if (element.values) {
+                        let categoryIds = element.values;
                         let categories = $scope.categories.filter(item => {
                             return categoryIds.indexOf(item.id) > -1;
                         });
@@ -307,27 +307,27 @@ var CategoryController = function ($scope, $http) {
     this.updateValues = function() {
         let categoryIds = $scope.selectedCategories.map(function(item) {
             return item.id;
-        }).join(";");
+        });
         // Set the value to an array of the category Ids
         wchUIExt.getDefinition().then((definition) => {
+            console.log(definition);
             if (definition.elementType === "group") {
                 wchUIExt.setElement({
                     elementType: "group",
                     value: {
                         "category": {
                             elementType: "text",
-                            value: categoryIds
+                            values: categoryIds
                         }
                     }
                 });
             } else {
                 wchUIExt.setElement({
                     elementType: "text",
-                    value: categoryIds
+                    values: categoryIds
                 });
             }
         });
-
         wchUIExt.setValid(true);
     }
 };
