@@ -7,11 +7,11 @@ These are the 'core' samples that are fully working and documented. Additionally
 
 ## The sample extensions
 
-### Dropdown
+### Dropdown with selections coming from a 3rd party API
 
 More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-dropdown
 
-### Category selection from a custom category
+### Category selection from a custom taxonomy
 
 More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-category
 
