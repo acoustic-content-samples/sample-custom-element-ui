@@ -17,13 +17,22 @@ function submitValue(newValue) {
     if (newValue !== cachedValue) {
         cachedValue = newValue;
     }
-    wchUIExt.setElement({
-        elementType: 'group',
-        value: {
-            "emailAddress": {
+    wchUIExt.getDefinition().then((definition) => {
+        if (definition.elementType === "group") {
+            wchUIExt.setElement({
+                elementType: 'group',
+                value: {
+                    "emailAddress": {
+                        elementType: "text",
+                        value: cachedValue
+                    }
+                }
+            });
+        } else {
+            wchUIExt.setElement({
                 elementType: "text",
                 value: cachedValue
-            }
+            });
         }
     });
     validate();
@@ -71,16 +80,27 @@ function validate(displayValidateMessage) {
             }
         }
         wchUIExt.getElement().then((element) => {
-            if (element.value["emailAddress"].value) {
-                cachedValue = element.value["emailAddress"].value ? element.value["emailAddress"].value : '';
-                if (cachedValue !== '') {
-                    emailInput.value = cachedValue;
-                    emailInput.classList.add('active');
-                    emailInput.classList.add('valid');
+            if (definition.elementType === "group") {
+                if (element.value["emailAddress"].value) {
+                    cachedValue = element.value["emailAddress"].value ? element.value["emailAddress"].value : '';
+                    if (cachedValue !== '') {
+                        emailInput.value = cachedValue;
+                        emailInput.classList.add('active');
+                        emailInput.classList.add('valid');
+                    }
                 }
-                // Call validate to update the status of current element
-                validate(false);
+            } else {
+                if (element.value) {
+                    cachedValue = element.value ? element.value : '';
+                    if (cachedValue !== '') {
+                        emailInput.value = cachedValue;
+                        emailInput.classList.add('active');
+                        emailInput.classList.add('valid');
+                    }
+                }
             }
+            // Call validate to update the status of current element
+            validate(false);
         });
     });
     wchUIExt.requestResizeFrame(30);

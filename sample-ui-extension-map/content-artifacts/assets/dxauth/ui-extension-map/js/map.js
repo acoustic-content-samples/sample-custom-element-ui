@@ -19,21 +19,27 @@ function myMap() {
         title: 'Hello World!'
     });
 
-    // Get selected latitude and longitude and set as default on map
-    wchUIExt.getElement().then((element) => {
-        console.log(element);
-        if (element.value["location"].longitude && element.value["location"].latitude) {
-            currentLatLng.lat = element.value["location"].latitude;
-            currentLatLng.lng = element.value["location"].longitude;
-            map.setCenter(currentLatLng);
-            marker.setPosition(currentLatLng);
-        }
-    });
-
-    // Disable map dragging and click to select location when content is published
-    wchUIExt.getDefinition().then((item) => {
-        console.log(item);
-        if (item.disabled) {
+    wchUIExt.getDefinition().then((definition) => {
+        // Get selected latitude and longitude and set as default on map
+        wchUIExt.getElement().then((element) => {
+            if (definition.elementType === "group") {
+                if (element.value["location"].longitude && element.value["location"].latitude) {
+                    currentLatLng.lat = element.value["location"].latitude;
+                    currentLatLng.lng = element.value["location"].longitude;
+                    map.setCenter(currentLatLng);
+                    marker.setPosition(currentLatLng);
+                }
+            } else {
+                if (element.longitude && element.latitude) {
+                    currentLatLng.lat = element.latitude;
+                    currentLatLng.lng = element.longitude;
+                    map.setCenter(currentLatLng);
+                    marker.setPosition(currentLatLng);
+                }
+            }
+        });
+        // Disable map dragging and click to select location when content is published
+        if (definition.disabled) {
             google.maps.event.removeListener(clickEvent);
             map.setOptions({draggable: false});
         }
@@ -49,16 +55,27 @@ function myMap() {
         console.log(event.latLng.lng() + "," + event.latLng.lat());
 
         // Set wch element values for location
-        wchUIExt.setElement({
-            elementType: "group",
-            value: {
-                "location": {
+        wchUIExt.getDefinition().then((definition) => {
+            if (definition.elementType === "group") {
+                wchUIExt.setElement({
+                    elementType: "group",
+                    value: {
+                        "location": {
+                            elementType: "location",
+                            longitude: event.latLng.lng(),
+                            latitude: event.latLng.lat()
+                        }
+                    }
+                });
+            } else {
+                wchUIExt.setElement({
                     elementType: "location",
                     longitude: event.latLng.lng(),
                     latitude: event.latLng.lat()
-                }
+                });
             }
         });
+
         wchUIExt.setValid(true);
     });
 }

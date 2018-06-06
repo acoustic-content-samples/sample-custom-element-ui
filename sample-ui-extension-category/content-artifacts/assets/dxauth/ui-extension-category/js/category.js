@@ -1,7 +1,7 @@
 /*
  * Copyright IBM Corp. 2018
  */
- 
+
 var app = angular.module('app', [
     'ui.bootstrap',
     'category',
@@ -259,21 +259,34 @@ var CategoryController = function ($scope, $http) {
     };
 
     this.getSelectedCategories = function() {
-        wchUIExt.getElement().then((element) => {
-            if (element.value["category"].value) {
-                let categoryIds = element.value["category"].value.split(";");
-                let categories = $scope.categories.filter(item => {
-                    return categoryIds.indexOf(item.id) > -1;
-                });
-                $scope.selectedCategories = categories;
-                $scope.$apply();
-            }
+        wchUIExt.getDefinition().then((definition) => {
+            wchUIExt.getElement().then((element) => {
+                if (definition.elementType === "group") {
+                    if (element.value["category"].value) {
+                        let categoryIds = element.value["category"].value.split(";");
+                        let categories = $scope.categories.filter(item => {
+                            return categoryIds.indexOf(item.id) > -1;
+                        });
+                        $scope.selectedCategories = categories;
+                        $scope.$apply();
+                    }
+                } else {
+                    if (element.value) {
+                        let categoryIds = element.value.split(";");
+                        let categories = $scope.categories.filter(item => {
+                            return categoryIds.indexOf(item.id) > -1;
+                        });
+                        $scope.selectedCategories = categories;
+                        $scope.$apply();
+                    }
+                }
+            });
         });
     };
 
     this.checkIfDisabled = function() {
-        wchUIExt.getDefinition().then(item => {
-            this.isPublished = item.disabled;
+        wchUIExt.getDefinition().then((definition) => {
+            this.isPublished = definition.disabled;
             $scope.$apply();
         });
     };
@@ -296,15 +309,25 @@ var CategoryController = function ($scope, $http) {
             return item.id;
         }).join(";");
         // Set the value to an array of the category Ids
-        wchUIExt.setElement({
-            elementType: "group",
-            value: {
-                "category": {
+        wchUIExt.getDefinition().then((definition) => {
+            if (definition.elementType === "group") {
+                wchUIExt.setElement({
+                    elementType: "group",
+                    value: {
+                        "category": {
+                            elementType: "text",
+                            value: categoryIds
+                        }
+                    }
+                });
+            } else {
+                wchUIExt.setElement({
                     elementType: "text",
                     value: categoryIds
-                }
+                });
             }
         });
+
         wchUIExt.setValid(true);
     }
 };

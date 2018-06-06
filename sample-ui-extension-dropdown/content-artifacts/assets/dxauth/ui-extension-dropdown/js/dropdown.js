@@ -39,23 +39,37 @@ var VanillaSelect = function(options) {
     wchUIExt.requestResizeFrame(30);
 
     // get a previously set selected dropdown value
-    wchUIExt.getElement().then((element) => {
-        if (element.value["selection"].value) {
-            document.getElementById("tagText").innerText = element.value["selection"].value;
-            for (var i = 0; i < optionsLength; i++) {
-                var li = document.createElement('li');
-                if (selectOptions[i].textContent === element.value["selection"].value) {
-                    li.classList.add(selectedClass);
-                    button.textContent = selectOptions[i].textContent;
+    wchUIExt.getDefinition().then((definition) => {
+        wchUIExt.getElement().then((element) => {
+            if (definition.elementType === "group") {
+                if (element.value["selection"].value) {
+                    document.getElementById("tagText").innerText = element.value["selection"].value;
+                    for (var i = 0; i < optionsLength; i++) {
+                        var li = document.createElement('li');
+                        if (selectOptions[i].textContent === element.value["selection"].value) {
+                            li.classList.add(selectedClass);
+                            button.textContent = selectOptions[i].textContent;
+                        }
+                    }
+                }
+            } else {
+                if (element.value) {
+                    document.getElementById("tagText").innerText = element.value;
+                    for (var i = 0; i < optionsLength; i++) {
+                        var li = document.createElement('li');
+                        if (selectOptions[i].textContent === element.value) {
+                            li.classList.add(selectedClass);
+                            button.textContent = selectOptions[i].textContent;
+                        }
+                    }
                 }
             }
-        }
+        });
     });
 
     // check if content is published
-    wchUIExt.getDefinition().then((item) => {
-        console.log(item);
-        if (item.disabled) {
+    wchUIExt.getDefinition().then((definition) => {
+        if (definition.disabled) {
             document.getElementById("selectDiv").style.display = "none";
             document.getElementById("tagDiv").style.display = "block";
         }
@@ -85,7 +99,6 @@ var VanillaSelect = function(options) {
     // pseudo-select is ready - append it and hide the original
     elem.parentNode.insertBefore(selectContainer, elem);
     elem.style.display = 'none';
-
 
     /**
      * Closes the current select on any click outside of it.
@@ -123,15 +136,25 @@ var VanillaSelect = function(options) {
             }
             t.classList.add(selectedClass);
 
-            wchUIExt.setElement({
-                elementType: "group",
-                value: {
-                    "selection": {
+            wchUIExt.getDefinition().then((definition) => {
+                if (definition.elementType === "group") {
+                    wchUIExt.setElement({
+                        elementType: "group",
+                        value: {
+                            "selection": {
+                                elementType: "text",
+                                value: t.innerText
+                            }
+                        }
+                    });
+                } else {
+                    wchUIExt.setElement({
                         elementType: "text",
                         value: t.innerText
-                    }
+                    });
                 }
             });
+
             close();
         }
     }

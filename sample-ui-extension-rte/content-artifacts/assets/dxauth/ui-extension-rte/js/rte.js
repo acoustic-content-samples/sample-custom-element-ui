@@ -5,40 +5,43 @@
 var editorPromise = ClassicEditor.create(document.querySelector('#editor'));
 
 editorPromise.then(editor => {
-    // Disable the rich text editor and show the formatted text
-    wchUIExt.getDefinition().then((item) => {
-        console.log(item);
-        if (item.disabled) {
-            // Don't show text editor if content has been published
-            wchUIExt.getElement().then((element) => {
-                console.log(element);
-                if (element.value) {
-                    editor.setData(element.value["text"].value);
-                    editor.isReadOnly = true;
-                }
-            });
-        } else {
-            // Get previously set text
-            wchUIExt.getElement().then((element) => {
-                console.log(element);
-                if (element.value) {
+    wchUIExt.getDefinition().then((definition) => {
+        // Get previously set text
+        wchUIExt.getElement().then((element) => {
+            if (definition.elementType === "group") {
+                if (element.value["text"].value) {
                     editor.setData(element.value["text"].value);
                 }
-            });
+            } else {
+                if (element.value) {
+                    editor.setData(element.value);
+                }
+            }
+        });
 
+        // Disable the rich text editor and show the formatted text
+        if (definition.disabled) {
+            editor.isReadOnly = true;
+        } else {
             // Save when the editor loses focus
             editor.ui.focusTracker.on('change:isFocused', () => {
                 const data = editor.getData();
-                console.log(data);
-                wchUIExt.setElement({
-                    elementType: "group",
-                    value: {
-                        "text": {
-                            elementType: "formattedtext",
-                            value: data
+                if (definition.elementType === "group") {
+                    wchUIExt.setElement({
+                        elementType: "group",
+                        value: {
+                            "text": {
+                                elementType: "formattedtext",
+                                value: data
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    wchUIExt.setElement({
+                        elementType: "formattedtext",
+                        value: data
+                    });
+                }
             });
         }
     });
