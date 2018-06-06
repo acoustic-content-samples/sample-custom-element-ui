@@ -13,7 +13,7 @@ More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master
 
 ### Category selection from a custom category
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-dropdown
+More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-category
 
 ### Google Maps location selection
 
