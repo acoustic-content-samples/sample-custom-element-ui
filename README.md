@@ -3,14 +3,7 @@
 A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customised the
 user interface of an element.
 
-# Installation
-
-## Run the sample locally.
-
-Simply open the index.html file for any of the examples in your browser using your file explorer or IDE. There is no
-build required.
-
-## The plugins
+## The sample extensions
 
 ### Dropdown
 
