@@ -3,7 +3,7 @@
 A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customised the
 user interface of an element.
 
-These are the 'core' samples that are fully working and documented. Additionally, there are 'extension' samples that are more rough here - https://github.ibm.com/DX/sample-ui-extensions-ext.
+These are the 'core' samples that are fully working and documented. Additionally, there are 'extra' samples that are more rough here - https://github.ibm.com/DX/sample-ui-extensions-ext.
 
 ## The sample extensions
 
