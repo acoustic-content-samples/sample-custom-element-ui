@@ -2,14 +2,22 @@ body {
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
 }
+
 .js-Dropdown {
     display: inline-block;
     position: relative;
-    width: 100%;
+    width: 500px;
     color: #595859;
     box-shadow: none;
     outline: none;
 }
+
+@media screen and (max-width: 501px) {
+    .js-Dropdown {
+        width: 100%;
+    }
+}
+
 .js-Dropdown-title {
     background: #ffffff;
     border: 1px groove #a5a5a5;

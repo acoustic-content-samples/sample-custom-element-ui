@@ -6,3 +6,10 @@ body {
     min-height: 200px;
     max-height: 350px;
 }
+
+@media screen and (max-width: 600px) {
+    .ck-editor__editable {
+        min-height: 170px;
+        max-height: 350px;
+    }
+}

@@ -5,7 +5,7 @@ body {
 
 .email-input {
     display: block;
-    width: 100%;
+    width: 500px;
     height: 30px;
     padding: 0 10px;
     line-height: 30px;
@@ -19,6 +19,12 @@ body {
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+@media screen and (max-width: 501px) {
+    .email-input {
+        width: 100%;
+    }
 }
 
 .email-input:focus {

@@ -70,6 +70,13 @@ body {
 /*Element*/
 .auth-category {
     display: flex;
+    width: 500px;
+}
+
+@media screen and (max-width: 501px) {
+    .auth-category {
+        width: 100%;
+    }
 }
 
 .auth-category .btn-group {
