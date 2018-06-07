@@ -27,6 +27,19 @@ More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master
 
 More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-email
 
+## Installing all of the extensions
+
+Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
+
+Make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
+
+Run
+
+```chmod 777 ./install.sh```
+```./install.sh```
+
+Enter you IBM ID password at the prompts.
+
 ## Creating you own UI Extension
 
 To create you own UI extension, copy the patterns shown in the samples.
