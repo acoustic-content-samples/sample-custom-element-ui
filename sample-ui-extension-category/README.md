@@ -22,7 +22,9 @@ The UI extension is now available at the URL:
 
 where your Hub Delivery URL is available from the Hub Information UI. 
 
-To use the "Custom Category" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL.
+To use the "Custom Category" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display
+of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL. The
+text element must be have the option "Allow multiple text fields" set on, to allow for the multiple category selections.
 
 ## Run the sample locally.
 
