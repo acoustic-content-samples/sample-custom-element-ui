@@ -12,19 +12,17 @@ Make sure that you have initialized wchtools with your user and tenant API URL. 
 
 Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -f```
+```wchtools push -A -v -I```
 
-The "Custom Category" element is now available for use in your content types. This element can then be included in other content types.
+[Future for when the "element groups" feature enabled: The "Custom Category" element is now available for use in your content types. This element can then be included in other content types.]
 
-The UI extension is now available at the URL: 
+The UI extension is available at the URL: 
 
 ```<Hub Delivery URL>/dxauth/ui-extension-category/index.html```
 
 where your Hub Delivery URL is available from the Hub Information UI. 
 
-To use the "Custom Category" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display
-of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL. The
-text element must be have the option "Allow multiple text fields" set on, to allow for the multiple category selections.
+To use the "Custom Category" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL. The text element must be have the option "Allow multiple text fields" set on, to allow for the multiple category selections.
 
 ## Run the sample locally.
 
