@@ -40,6 +40,12 @@ var VanillaSelect = function(options) {
 
     // get a previously set selected dropdown value
     wchUIExt.getDefinition().then((definition) => {
+        // Check if content is published
+        if (definition.disabled) {
+            document.getElementById("selectDiv").style.display = "none";
+            document.getElementById("tagDiv").style.display = "block";
+            wchUIExt.requestResizeFrame(50);
+        }
         wchUIExt.getElement().then((element) => {
             if (definition.elementType === "group") {
                 if (element.value["selection"].value) {
@@ -65,14 +71,6 @@ var VanillaSelect = function(options) {
                 }
             }
         });
-    });
-
-    // check if content is published
-    wchUIExt.getDefinition().then((definition) => {
-        if (definition.disabled) {
-            document.getElementById("selectDiv").style.display = "none";
-            document.getElementById("tagDiv").style.display = "block";
-        }
     });
 
     for (var i = 0; i < optionsLength; i++) {
