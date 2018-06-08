@@ -18,9 +18,9 @@ Make sure that you have initialized wchtools with your user and tenant API URL. 
 
 Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -f```
+```wchtools push -A -v -I```
 
-The "Rich Text" custom element group is now available for use in your content types.
+[Future for when the "element groups" feature enabled: The "Rich Text" custom element group is now available for use in your content types.]
 
 The UI extension is now available at the URL:
 
