@@ -6,14 +6,13 @@ A samples that extends the Authoring interface of Watson Content Hub to provide 
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 
-Note: make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
-From the root directory, run npm run build and npm run deploy.
+Make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
 
-Download this repository. From the root directory of this repository run
+Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -f```
+```wchtools push -A -v -I```
 
-The "Email" element is now available for use in your content types. This element can then be included in other content types.
+[Future for when the "element groups" feature enabled: The "Email" element is now available for use in your content types. This element can then be included in other content types.]
 
 The UI extension is now available at the URL: 
 

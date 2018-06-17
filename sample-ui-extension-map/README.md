@@ -14,14 +14,13 @@ The Google Maps API requires an API key. See here for more information: https://
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 
-Note: make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
-From the root directory, run npm run build and npm run deploy.
+Make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
 
-Download this repository. From the ```content-artifacts``` directory of this repository run
+Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -f```
+```wchtools push -A -v -I```
 
-The "Map location" element is now available for use in your content types.
+[Future for when the "element groups" feature enabled: The "Map location" element is now available for use in your content types.]
 
 The UI extension is now available at the URL:
 
