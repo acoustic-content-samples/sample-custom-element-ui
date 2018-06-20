@@ -16,6 +16,6 @@
     }
   ],
   "uiExtensions": {
-    "element": "<Hub Delivery URL>/dxauth/ui-extension-map/index.html"
+    "element": "/dxauth/ui-extension-map/index.html"
   }
 }
