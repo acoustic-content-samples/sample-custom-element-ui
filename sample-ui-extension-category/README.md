@@ -16,7 +16,7 @@ Download this repository. From the content-artifacts directory under this folder
 
 The "Custom Category" element is now available for use in your content types. This element can then be included in other content types.
 
-Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be:
+Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom design" to be:
 
 ```/dxauth/ui-extension-category/index.html```
 
