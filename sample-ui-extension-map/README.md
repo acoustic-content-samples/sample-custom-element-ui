@@ -20,15 +20,11 @@ Download this repository. From the content-artifacts directory under this folder
 
 ```wchtools push -A -v -I```
 
-[Future for when the "element groups" feature enabled: The "Map location" element is now available for use in your content types.]
+The "Map location" element is now available for use in your content types.
 
-The UI extension is now available at the URL:
+Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom design" to be:
 
-```<Hub Delivery URL>/dxauth/ui-extension-dropdown/index.html```
-
-where your Hub Delivery URL is available from the Hub Information UI.
-
-To use the "Map location" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL.
+```/dxauth/ui-extension-map/index.html```
 
 ## Customising the sample.
 
