@@ -20,15 +20,11 @@ Download this repository. From the content-artifacts directory under this folder
 
 ```wchtools push -A -v -I```
 
-[Future for when the "element groups" feature enabled: The "Rich Text" custom element group is now available for use in your content types.]
+The "Rich Text" custom element group is now available for use in your content types.
 
-The UI extension is now available at the URL:
+Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom design" to be:
 
-```<Hub Delivery URL>/dxauth/ui-extension-rte/index.html```
-
-where your API URL is available from the Hub Information UI.
-
-To use the "Rich Text" element, update the "Custom display for the canvas" to this URL. Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom display" to be this URL.
+```/dxauth/ui-extension-rte/index.html```
 
 ## Customising the sample.
 
