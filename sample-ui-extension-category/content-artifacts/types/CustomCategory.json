@@ -3,7 +3,8 @@
   "classification": "content-type",
   "path": "/CustomCategory.json",
   "kind": [
-    "embedded"
+    "embedded",
+    "custom-ui"
   ],
   "description": "",
   "status": "ready",
