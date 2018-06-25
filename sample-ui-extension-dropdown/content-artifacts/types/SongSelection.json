@@ -3,7 +3,8 @@
   "classification": "content-type",
   "path": "/SongSelection.json",
   "kind": [
-    "embedded"
+    "embedded",
+    "custom-ui"
   ],
   "description": "",
   "status": "ready",
