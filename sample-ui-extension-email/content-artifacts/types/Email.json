@@ -3,7 +3,8 @@
   "classification": "content-type",
   "path": "/Email.json",
   "kind": [
-    "embedded"
+    "embedded",
+    "custom-ui"
   ],
   "description": "",
   "status": "ready",
