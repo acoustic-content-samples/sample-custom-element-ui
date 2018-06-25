@@ -3,7 +3,8 @@
   "classification": "content-type",
   "path": "/MapLocation.json",
   "kind": [
-    "embedded"
+    "embedded",
+    "custom-ui"
   ],
   "description": "",
   "status": "ready",
