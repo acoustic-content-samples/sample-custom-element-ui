@@ -1,11 +1,11 @@
-# Sample UI Extensions
+# Sample custom element user interfaces
 
 A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customises the
 user interface of an element.
 
 These are the 'core' samples that are fully working and documented. Additionally, there are 'extra' samples that are more rough here - https://github.ibm.com/DX/sample-ui-extensions-ext.
 
-## The sample extensions
+## The sample custom element UIs
 
 ### Dropdown with selections coming from a 3rd party API
 
@@ -27,7 +27,7 @@ More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master
 
 More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-email
 
-## Installing all of the extensions
+## Installing all of the custom element UIs
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 
@@ -40,9 +40,9 @@ Run
 
 Enter you IBM ID password at the prompts.
 
-## Creating you own UI Extension
+## Creating you own Custom UI
 
-To create you own UI extension, copy the patterns shown in the samples.
+To create you own Custom UI, copy the patterns shown in the samples.
 
 Include the Javascript for the SDKs in your index.html using:
 
@@ -53,12 +53,12 @@ Include the Javascript for the SDKs in your index.html using:
 
 For information on how to use the SDK, see [ibm-wch-sdk-ui-extensions](https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions).
 
-Write your UI extension and push the assets into the hub, as per the above instructions for the samples. Finally,
-enable the UI extension in the content type that is using it.
+Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
+enable the Custom UI in the content type that is using it.
 
-## Running, testing and debugging UI extensions locally
+## Running, testing and debugging Custom UIs locally
 
-In order to run/testing/debugging your UI extensions it is useful to be able to run the UI extension locally (ie on localhost) and have them show up in the WCH Authoring UI. To do this, follow these steps: 
+In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom UI locally (ie on localhost) and have them show up in the WCH Authoring UI. To do this, follow these steps: 
 
 First create a self-signed certificate and fill in the given details:
 
@@ -73,7 +73,7 @@ For example:
 
 ```http-server content-artifacts/assets -p 3000 -S -C cert.pem -o```
 
-This will allow you to point to the extension using the following url:
+This will allow you to point to the custom UI using the following url:
 
 ```https://localhost:3000/dxauth/ui-extension-<extension_name>/index.html```
 
