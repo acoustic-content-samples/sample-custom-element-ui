@@ -1,11 +1,8 @@
-# Sample custom element user interfaces
+# Sample custom elements
 
-A collection of Samples that extend the Authoring interface of Watson Content Hub. Each of the samples customises the
-user interface of an element.
+A collection of Samples that extend the Authoring interface of Watson Content Hub with custom elements that have custom user interfaces. 
 
-These are the 'core' samples that are fully working and documented. Additionally, there are 'extra' samples that are more rough here - https://github.ibm.com/DX/sample-ui-extensions-ext.
-
-## The sample custom element UIs
+## The sample custom elements
 
 ### Dropdown with selections coming from a 3rd party API
 
@@ -40,9 +37,9 @@ Run
 
 Enter you IBM ID password at the prompts.
 
-## Creating you own Custom UI
+## Creating you own Custom elements
 
-To create you own Custom UI, copy the patterns shown in the samples.
+To create you own Custom elements with custom user interfaces, copy the patterns shown in the samples.
 
 Include the Javascript for the SDKs in your index.html using:
 
