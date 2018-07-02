@@ -28,6 +28,3 @@ Fork and then download the sample. To run the sample locally, simply open the ``
 
 Edit the JavaScript in the file ```content-artifacts/assets/dxauth/ui-extension-dropdown/js/dropdown.js``` to customise the sample according to the URL, authentication mechanism and JSON response of the Rest API that you intend to use.
 
-## The UI extensions SDK
-
-The sample uses the UI extensions SDK documented here - https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions
