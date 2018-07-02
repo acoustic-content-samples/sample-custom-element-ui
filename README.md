@@ -6,23 +6,23 @@ A collection of Samples that extend the Authoring interface of Watson Content Hu
 
 ### Dropdown with selections coming from a 3rd party API
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-dropdown
+More information: [Dropdown Song Selector](sample-ui-extension-dropdown)
 
 ### Category selection from a custom taxonomy
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-category
+More information: [Custom Category Selector](sample-ui-extension-category)
 
 ### Google Maps location selection
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-map
+More information: [Google Maps Location Selector](sample-ui-extension-map)
 
 ### Custom rich text editor
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-rte
+More information: [Custom CKEditor](sample-ui-extension-rte)
 
 ### Emails address showing custom validation
 
-More information: https://github.ibm.com/DX/sample-ui-extension-core/tree/master/sample-ui-extension-email
+More information: [Email Address with Validation](sample-ui-extension-email)
 
 ## Installing all of the custom element UIs
 
