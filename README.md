@@ -47,8 +47,7 @@ To create you own Custom UI, copy the patterns shown in the samples.
 Include the Javascript for the SDKs in your index.html using:
 
 ```html
-<script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
-<script src="https://unpkg.com/@ibm-wch/ui-extensions/dist/ibm-wch-sdk-ui-extensions.js"></script>
+<script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
 For information on how to use the SDK, see [ibm-wch-sdk-ui-extensions](https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions).
@@ -58,7 +57,7 @@ enable the Custom UI in the content type that is using it.
 
 ## Running, testing and debugging Custom UIs locally
 
-In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom UI locally (ie on localhost) and have them show up in the WCH Authoring UI. To do this, follow these steps: 
+In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom UI locally (ie on localhost) and have them show up in the WCH Authoring UI. To do this, follow these steps:
 
 First create a self-signed certificate and fill in the given details:
 
