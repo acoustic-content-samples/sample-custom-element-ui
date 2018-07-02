@@ -41,13 +41,13 @@ Enter you IBM ID password at the prompts.
 
 To create you own Custom elements with custom user interfaces, copy the patterns shown in the samples.
 
-Include the Javascript for the SDKs in your index.html using:
+Include the JavaScript library for the UI extensions in your index.html using:
 
 ```html
 <script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
-For information on how to use the SDK, see [ibm-wch-sdk-ui-extensions](https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions).
+For information on how to use the JavaScript library, see https://www.npmjs.com/package/@ibm-wch/ui-extensions.
 
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
 enable the Custom UI in the content type that is using it.
