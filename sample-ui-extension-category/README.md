@@ -28,6 +28,3 @@ Fork and then download the sample. To run the sample locally, simply open the ``
 
 Edit the HTML and directives in `content-artifacts/assets/dxauth/ui-extension-category/index.html` and the JavaScript in `content-artifacts/assets/dxauth/ui-extension-category/js/category.js` to customise the sample according to the URL, authentication mechanism and JSON response of the Rest API that you intend to use.
 
-## The UI extensions SDK
-
-The sample uses the UI extensions SDK documented here - https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions
