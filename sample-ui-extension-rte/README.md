@@ -30,6 +30,3 @@ Alternatively, you can customise the display of an existing text element in one 
 
 Fork and then download the sample. To run the sample locally, simply open the ```index.html``` file in your browser using your file explorer or IDE. There is no build required. Edit the files and refresh the browser to test the extension. When the changes are complete, push the updated extension back to the hub.
 
-## The UI extensions SDK
-
-The sample uses the UI extensions SDK documented here - https://github.ibm.com/DX/ibm-wch-sdk-ui-extensions
