@@ -2,6 +2,11 @@
 
 A samples that extends the Authoring interface of Watson Content Hub to provide a email entry field. A custom validation ensures that the entered text is a valid email address. The email address is stored in a text field.
 
+## Screenshots
+
+![screen shot 2018-07-03 at 10 00 15 am](https://media.github.ibm.com/user/152536/files/3093885c-7eb2-11e8-9b4f-c4105b352da3)
+![screen shot 2018-07-03 at 10 00 25 am](https://media.github.ibm.com/user/152536/files/30c8fa00-7eb2-11e8-9dfa-1ccb78600c26)
+
 ## Install the sample into Watson Content Hub
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
