@@ -10,6 +10,10 @@ As for any location element, the selected location can then be searched on. For 
 
 The Google Maps API requires an API key. See here for more information: https://developers.google.com/maps/documentation/javascript/get-api-key. The sample contains an API key that is for demo use only. The API key in index.html can be replaced with your own Google API key. However, be aware that assets uploaded to WCH will always be published to the public internet. This is a limitation that WCH hopes to address in the future. For now, do not enter an API key here that you do not wish to be made public to all.
 
+## Screenshot
+
+![screen shot 2018-07-03 at 9 52 17 am](https://media.github.ibm.com/user/152536/files/2686cc84-7eb2-11e8-9c19-777d06133955)
+
 ## Install the sample into Watson Content Hub
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
