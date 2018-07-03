@@ -4,6 +4,11 @@ A samples that extends the Authoring interface of Watson Content Hub to provide 
 
 To customise the source of the selections, edit the file ```content-artifacts/assets/dxauth/ui-extension-category/js/category.js``` to use your Rest API, rather than using the fixed JSON that is supplied there for demonstration purposes.
 
+## Screenshots
+
+![screen shot 2018-07-03 at 9 59 03 am](https://media.github.ibm.com/user/152536/files/2ad76758-7eb2-11e8-825e-3d511ea9bbe3)
+![screen shot 2018-07-03 at 9 59 20 am](https://media.github.ibm.com/user/152536/files/2b1da704-7eb2-11e8-8932-094a6b523e6a)
+
 ## Install the sample into Watson Content Hub
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
