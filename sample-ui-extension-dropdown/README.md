@@ -6,6 +6,10 @@ For the sake of a simple example, the selections are Beatles songs that come fro
 
 Typically, this sample will be customised to point to a different Rest API that may require an API key or other authentication, and that will return a different JSON representation. Such customisation should be relatilvey straightforward and localised to a small part of the sample.
 
+## Screenshot
+
+![screen shot 2018-07-03 at 9 59 49 am](https://media.github.ibm.com/user/152536/files/3063e8fe-7eb2-11e8-8280-0c7953fa5a00)
+
 ## Installing the sample into Watson Content Hub
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
