@@ -29,6 +29,7 @@ More information: [Email Address with Validation](sample-ui-extension-email)
 Install the latest version of wchtools-cli:
 
 Windows: ```npm install -g wchtools-cli ```
+
 Linux/Mac: ```sudo npm install -g wchtools-cli```
 
 Make sure that you have initialized wchtools with your user and tenant API URL using:
