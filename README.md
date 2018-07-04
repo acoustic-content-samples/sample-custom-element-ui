@@ -26,11 +26,18 @@ More information: [Email Address with Validation](sample-ui-extension-email)
 
 ## Installing all of the custom element UIs
 
-Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
+Install the latest version of wchtools-cli:
 
-Make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
+Windows: ```npm install -g wchtools-cli ```
+Linux/Mac: ```sudo npm install -g wchtools-cli```
 
-Run:
+Make sure that you have initialized wchtools with your user and tenant API URL using:
+
+```wchtools init```
+
+You will be prompted for your user password when deploying to the tenant. For more information, refer to https://github.com/ibm-wch/wchtools-cli.
+
+To install all the custom element UIs, run:
 
 ```chmod 777 ./install.sh```
 
@@ -51,7 +58,7 @@ Include the JavaScript library for the UI extensions in your index.html using:
 For information on how to use the JavaScript library, see https://www.npmjs.com/package/@ibm-wch/ui-extensions.
 
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
-enable the Custom UI in the content type that is using it.
+enable the Custom UI in the content type that is using it, again, as shown in the samples.
 
 ## Running, testing and debugging Custom UIs locally
 
