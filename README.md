@@ -30,9 +30,10 @@ Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli
 
 Make sure that you have initialized wchtools with your user and tenant API URL. You will be prompted for your user password when deploying to the tenant. For more information, refer to wchtools-cli.
 
-Run
+Run:
 
 ```chmod 777 ./install.sh```
+
 ```./install.sh```
 
 Enter you IBM ID password at the prompts.
