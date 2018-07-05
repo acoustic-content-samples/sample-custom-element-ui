@@ -326,6 +326,7 @@ var CategoryController = function ($scope, $http) {
             if (definition.elementType === "group") {
                 wchUIExt.setElement({
                     elementType: "group",
+                    typeRef: definition.typeRef,
                     value: {
                         "category": {
                             elementType: "text",

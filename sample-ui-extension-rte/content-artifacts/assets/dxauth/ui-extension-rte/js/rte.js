@@ -41,6 +41,7 @@ editorPromise.then(editor => {
                 if (definition.elementType === "group") {
                     wchUIExt.setElement({
                         elementType: "group",
+                        typeRef: definition.typeRef,
                         value: {
                             "text": {
                                 elementType: "formattedtext",

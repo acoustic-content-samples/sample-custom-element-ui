@@ -144,6 +144,7 @@ var VanillaSelect = function(options) {
                 if (definition.elementType === "group") {
                     wchUIExt.setElement({
                         elementType: "group",
+                        typeRef: definition.typeRef,
                         value: {
                             "selection": {
                                 elementType: "text",

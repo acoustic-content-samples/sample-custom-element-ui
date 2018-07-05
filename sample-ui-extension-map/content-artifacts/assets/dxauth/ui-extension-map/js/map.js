@@ -71,6 +71,7 @@ function myMap() {
             if (definition.elementType === "group") {
                 wchUIExt.setElement({
                     elementType: "group",
+                    typeRef: definition.typeRef,
                     value: {
                         "location": {
                             elementType: "location",

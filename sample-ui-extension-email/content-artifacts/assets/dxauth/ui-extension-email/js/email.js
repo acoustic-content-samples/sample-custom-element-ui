@@ -33,6 +33,7 @@ function submitValue(newValue) {
         if (definition.elementType === "group") {
             wchUIExt.setElement({
                 elementType: 'group',
+                typeRef: definition.typeRef,
                 value: {
                     "emailAddress": {
                         elementType: "text",
