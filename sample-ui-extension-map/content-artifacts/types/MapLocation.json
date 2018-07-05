@@ -16,6 +16,7 @@
       "key": "location"
     }
   ],
+  "icon": "location",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-map/index.html"
   }

@@ -18,6 +18,7 @@
       "minimumValues": 0
     }
   ],
+  "icon": "category",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-category/index.html"
   }

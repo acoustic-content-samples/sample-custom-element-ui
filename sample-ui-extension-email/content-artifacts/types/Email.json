@@ -16,6 +16,7 @@
       "key": "emailAddress"
     }
   ],
+  "icon": "text",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-email/index.html"
   }

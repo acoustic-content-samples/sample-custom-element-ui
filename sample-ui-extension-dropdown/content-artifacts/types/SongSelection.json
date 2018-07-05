@@ -16,6 +16,7 @@
       "key": "selection"
     }
   ],
+  "icon": "optionselection",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-dropdown/index.html"
   }

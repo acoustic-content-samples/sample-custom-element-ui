@@ -16,6 +16,7 @@
       "key": "text"
     }
   ],
+  "icon": "formattedtext",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-rte/index.html"
   }
