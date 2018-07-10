@@ -2,6 +2,10 @@
 
 A collection of Samples that extend the Authoring interface of Watson Content Hub with custom elements that have custom user interfaces. 
 
+## Demo video
+
+https://www.youtube.com/watch?v=Jxsec98SUBQ&feature=youtu.be
+
 ## The sample custom elements
 
 ### Dropdown with selections coming from a 3rd party API
