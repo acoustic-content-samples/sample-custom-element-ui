@@ -4,8 +4,7 @@ A samples that extends the Authoring interface of Watson Content Hub to provide 
 
 ## Screenshots
 
-![screen shot 2018-07-03 at 10 00 15 am](https://media.github.ibm.com/user/152536/files/3093885c-7eb2-11e8-9b4f-c4105b352da3)
-![screen shot 2018-07-03 at 10 00 25 am](https://media.github.ibm.com/user/152536/files/30c8fa00-7eb2-11e8-9dfa-1ccb78600c26)
+![image](https://user-images.githubusercontent.com/7553535/42616034-141fc56a-85f0-11e8-85f7-4795a0f86d46.png)
 
 ## Install the sample into Watson Content Hub
 
