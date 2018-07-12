@@ -8,7 +8,7 @@ Typically, this sample will be customised to point to a different Rest API that 
 
 ## Screenshot
 
-![screen shot 2018-07-03 at 9 59 49 am](https://media.github.ibm.com/user/152536/files/3063e8fe-7eb2-11e8-8280-0c7953fa5a00)
+![image](https://user-images.githubusercontent.com/7553535/42616018-0036bd60-85f0-11e8-8de9-6895b0c33003.png)
 
 ## Installing the sample into Watson Content Hub
 
