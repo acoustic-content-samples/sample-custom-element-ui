@@ -14,7 +14,7 @@ A note on security and active content: The html that is created by the rich text
 
 ## Screenshot
 
-![screen shot 2018-07-03 at 9 51 48 am](https://media.github.ibm.com/user/152536/files/23b8d376-7eb2-11e8-8a71-009433bb0b6d)
+![image](https://user-images.githubusercontent.com/7553535/42615931-a3c1374a-85ef-11e8-85af-dcd10a91aa96.png)
 
 ## Install the sample into Watson Content Hub
 
