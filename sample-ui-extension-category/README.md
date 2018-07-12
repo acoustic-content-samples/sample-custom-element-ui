@@ -6,8 +6,7 @@ To customise the source of the selections, edit the file ```content-artifacts/as
 
 ## Screenshots
 
-![screen shot 2018-07-03 at 9 59 03 am](https://media.github.ibm.com/user/152536/files/2ad76758-7eb2-11e8-825e-3d511ea9bbe3)
-![screen shot 2018-07-03 at 9 59 20 am](https://media.github.ibm.com/user/152536/files/2b1da704-7eb2-11e8-8932-094a6b523e6a)
+![image](https://user-images.githubusercontent.com/7553535/42615995-e6e9f3ea-85ef-11e8-9cfa-b968cbbf1046.png)
 
 ## Install the sample into Watson Content Hub
 
