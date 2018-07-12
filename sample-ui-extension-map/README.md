@@ -12,7 +12,7 @@ The Google Maps API requires an API key. See here for more information: https://
 
 ## Screenshot
 
-![screen shot 2018-07-03 at 9 52 17 am](https://media.github.ibm.com/user/152536/files/2686cc84-7eb2-11e8-9c19-777d06133955)
+![image](https://user-images.githubusercontent.com/7553535/42616061-3109358a-85f0-11e8-84ff-d19fb2ee595b.png)
 
 ## Install the sample into Watson Content Hub
 
