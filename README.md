@@ -4,7 +4,7 @@ A collection of Samples that extend the Authoring interface of Watson Content Hu
 
 ## Demo video
 
-https://www.youtube.com/watch?v=Jxsec98SUBQ&feature=youtu.be
+https://youtu.be/Jxsec98SUBQ
 
 ## The sample custom elements
 
