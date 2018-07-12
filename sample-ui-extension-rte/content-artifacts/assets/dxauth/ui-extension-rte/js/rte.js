@@ -14,7 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-var editorPromise = ClassicEditor.create(document.querySelector('#editor'));
+// Open and configure editor
+// See: https://docs.ckeditor.com/ckeditor5/latest/builds/guides/integration/configuration.html and
+// https://docs.ckeditor.com/ckeditor5/latest/api/module_core_editor_editorconfig-EditorConfig.html
+var editorPromise = ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo']
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
 
 editorPromise.then(editor => {
     wchUIExt.getDefinition().then((definition) => {
@@ -57,6 +66,8 @@ editorPromise.then(editor => {
                 }
             });
         }
+
+        console.log("available toolbar buttons:", Array.from(editor.ui.componentFactory.names()));
     });
 
     // Give RTE enough height
