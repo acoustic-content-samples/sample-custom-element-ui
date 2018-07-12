@@ -4,7 +4,7 @@ A sample that extends the Authoring interface of Watson Content Hub to provide a
 
 The sample is based on the CKEditor5 'Classic editor' at: https://docs.ckeditor.com/ckeditor5/latest/builds/guides/integration/basic-api.html
 
-Note that the 'insert image' button in the classic editor is not implemented in the sample. The sample could be extended to upload the image to WCH and to insert the URL to the image into the HTML, or else this button removed for now.
+The Rich text editor that is in the sample is similar to the default editor that is provided in Watson Content Hub for formatted text elements (which is CKEditor 4). It contains a single extra button for insert blockquotes. This is a simple example of how the features that are provided by the rich text editor can be customised. In the same way, other rich text editor features could be added as required, such as a dropdown menu could be provided to apply custom styles, and so forth. 
 
 Equally, it would be possible to use any other Rich Text Editor, such as TextboxIO, TinyMCE, CKEditor4 etc. The websites for each of the rich text editors provide a UI to customise the editor, such as by adding and removing toolbar buttons. A customised version of the editor can then be downloaded, and then uploaded as an asset in WCH, in the same way that is done for this sample.
 
