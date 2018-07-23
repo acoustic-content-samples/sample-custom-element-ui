@@ -8,7 +8,7 @@ This is a very simple map that just allows selection of a location. To produce a
 
 As for any location element, the selected location can then be searched on. For example, the WCH Search APIs can be used to find all content items that are close to the user's current location. To enable this, the location element's 'search key' should be set.
 
-The Google Maps API requires an API key. See here for more information: https://developers.google.com/maps/documentation/javascript/get-api-key. The sample contains an API key that is for demo use only. The API key in index.html can be replaced with your own Google API key. However, be aware that assets uploaded to WCH will always be published to the public internet. This is a limitation that WCH hopes to address in the future. For now, do not enter an API key here that you do not wish to be made public to all.
+The Google Maps API requires an API key. See here for more information: https://developers.google.com/maps/documentation/javascript/get-api-key. The placeholder for an `GOOGLE_MAPS_API_KEY` in index.html can be replaced with your own Google API key. However, be aware that assets uploaded to WCH will always be published to the public internet, so any API key placed here will be made public. To keep your API Key secure, use the WCH API 	`/vault/v1/credentials/customer-tenant-scope/{id}` to hold the API Key, and perform a GET request to get the API key from this API using the credentials of the content author.
 
 ## Screenshot
 
