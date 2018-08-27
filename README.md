@@ -1,4 +1,4 @@
-# Sample custom elements
+# Sample custom element user interface extensions
 
 A collection of Samples that extend the Authoring interface of Watson Content Hub with custom elements that have custom user interface extensions.
 
