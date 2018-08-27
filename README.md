@@ -1,6 +1,6 @@
 # Sample custom elements
 
-A collection of Samples that extend the Authoring interface of Watson Content Hub with custom elements that have custom user interfaces. 
+A collection of Samples that extend the Authoring interface of Watson Content Hub with custom elements that have custom user interface extensions.
 
 ## Demo video
 
@@ -52,7 +52,7 @@ Enter you IBM ID password at the prompts.
 
 ## Creating you own Custom elements
 
-To create you own Custom elements with custom user interfaces, copy the patterns shown in the samples.
+To create you own Custom elements with custom user interface extensions, copy the patterns shown in the samples.
 
 Include the JavaScript library for the UI extensions in your index.html using:
 
@@ -82,7 +82,7 @@ For example:
 
 ```http-server content-artifacts/assets -p 3000 -S -C cert.pem -o```
 
-This will allow you to point to the custom UI using the following url:
+This will allow you to point to the custom user interface extension using the following url:
 
 ```https://localhost:3000/dxauth/ui-extension-<extension_name>/index.html```
 
