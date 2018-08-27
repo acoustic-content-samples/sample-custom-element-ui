@@ -28,7 +28,7 @@ More information: [Custom CKEditor](sample-ui-extension-rte)
 
 More information: [Email Address with Validation](sample-ui-extension-email)
 
-## Installing all of the custom element UIs
+## Installing all of the custom element user interface extensions
 
 Install the latest version of wchtools-cli:
 
@@ -42,7 +42,7 @@ Make sure that you have initialized wchtools with your user and tenant API URL u
 
 You will be prompted for your user password when deploying to the tenant. For more information, refer to https://github.com/ibm-wch/wchtools-cli.
 
-To install all the custom element UIs, run:
+To install all the custom element user interface extensions, run:
 
 ```chmod 777 ./install.sh```
 
