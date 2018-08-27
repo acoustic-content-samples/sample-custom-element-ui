@@ -65,9 +65,9 @@ For information on how to use the JavaScript library, see https://www.npmjs.com/
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
 enable the Custom UI in the content type that is using it, again, as shown in the samples.
 
-## Running, testing and debugging Custom UIs locally
+## Running, testing and debugging custom user interface extensions locally
 
-In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom UI locally (ie on localhost) and have them show up in the WCH Authoring UI. To do this, follow these steps:
+In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom user interface extension locally (ie on localhost) and have them appear in the WCH Authoring UI. To do this, follow these steps:
 
 First create a self-signed certificate and fill in the given details:
 
