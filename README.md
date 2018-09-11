@@ -60,6 +60,12 @@ Include the JavaScript library for the UI extensions in your index.html using:
 <script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
+**NOTE:** If testing UI extensions on a different environment, the above URL can be modified to point to the correct domain:
+
+```html
+<script src="https://www.<WCH-DOMAIN>/auth/ibm-wch-ui-extensions.js"></script>
+```
+
 For information on how to use the JavaScript library, see https://www.npmjs.com/package/@ibm-wch/ui-extensions.
 
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
@@ -76,6 +82,7 @@ First create a self-signed certificate and fill in the given details:
 Install http-server from npm and serve your files locally
 
 ```npm install http-server -g```
+
 ```http-server <path> -p 3000 -S -C cert.pem -o```
 
 For example:
