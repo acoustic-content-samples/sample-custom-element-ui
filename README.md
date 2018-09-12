@@ -60,7 +60,7 @@ Include the JavaScript library for the UI extensions in your index.html using:
 <script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
-**NOTE:** If testing UI extensions on a different environment, the above URL can be modified to point to the correct domain:
+**NOTE:** If testing UI extensions on a different environment, the above URL **must** be modified to point to the correct domain:
 
 ```html
 <script src="https://www.<WCH-DOMAIN>/auth/ibm-wch-ui-extensions.js"></script>
