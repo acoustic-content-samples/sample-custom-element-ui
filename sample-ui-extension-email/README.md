@@ -14,7 +14,7 @@ Make sure that you have initialized wchtools with your user and tenant API URL. 
 
 Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -I```
+```wchtools push -A -v -I --publish-now```
 
 The "Email" element is now available for use in your content types. This element can then be included in other content types.
 
