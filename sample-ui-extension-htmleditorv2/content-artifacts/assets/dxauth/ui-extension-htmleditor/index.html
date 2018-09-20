@@ -1,0 +1,26 @@
+<html>
+<head>
+    <!--Code Mirror Styling and JS-->
+    <link rel="stylesheet" type="text/css" href="https://codemirror.net/lib/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="https://codemirror.net/addon/lint/lint.css">
+    <script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/css/css.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+
+    <!--UI Extension-->
+    <script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
+    <script src="./js/htmleditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/htmleditor.css">
+
+
+</head>
+<body onload="onLoad()">
+    <div style="border: 1px solid black; padding: 3px;">
+        <textarea id="textArea"></textarea>
+    </div>
+    <!--<input type="text">-->
+    <button class="save-btn" onclick="onSaveClick()" id="save-btn">Save file</button>
+</body>
+</html>

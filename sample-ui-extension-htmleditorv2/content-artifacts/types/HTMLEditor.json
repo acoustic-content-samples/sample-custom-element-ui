@@ -1,0 +1,22 @@
+{
+  "name": "HTML editor",
+  "classification": "content-type",
+  "path": "/HTMLEditor.json",
+  "kind": [
+    "embedded",
+    "custom-ui"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [ ],
+  "elements": [
+    {
+      "elementType": "file",
+      "label": "HTMLEditor",
+      "key": "htmleditor"
+    }
+  ],
+  "uiExtensions": {
+    "element": "/dxauth/ui-extension-htmleditor/index.html"
+  }
+}
