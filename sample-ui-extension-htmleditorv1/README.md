@@ -1,4 +1,4 @@
-# Sample UI extension for a HTML Editor using assets for storage
+# Sample UI extension for a HTML Editor using a text element
 
 This sample is an HTML, JS and CSS editor element with syntax highlighting. Useful for pasting in snippets of HTML and 'inline' JS and CSS into a page. This sample is based on CodeMirror (https://codemirror.net/).
 
