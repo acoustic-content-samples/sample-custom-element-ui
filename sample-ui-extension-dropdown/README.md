@@ -1,6 +1,6 @@
 # Sample UI extension for a dropdown selection with values from a 3rd party API
 
-A samples that extends the Authoring interface of IBM Watson Content Hub to provide a dropdown selector for a content field. The available selections come from a Rest API. The dropdown can be used within a content item to select a value for the content element. The dropdown is styled to look like the other dropdowns in the WCH UI, such as for the options selection element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies. The selection is stored in a text element.
+A sample that extends the Authoring interface of IBM Watson Content Hub to provide a dropdown selector for a content field. The available selections come from a Rest API. The dropdown can be used within a content item to select a value for the content element. The dropdown is styled to look like the other dropdowns in the WCH UI, such as for the options selection element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies. The selection is stored in a text element.
 
 For the sake of a simple example, the selections are Beatles songs that come from the Apple iTunes API, which does not require an API Key. The content author can select a Beatles song.
 

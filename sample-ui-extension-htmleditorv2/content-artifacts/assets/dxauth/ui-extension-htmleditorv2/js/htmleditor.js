@@ -21,7 +21,7 @@ function onLoad() {
     });
 
     // Set editor settings
-    editor.setSize(500, 400);
+    editor.setSize(500, 500);
     editor.on("change", onEditorChange);
     editor.setValue("Loading...");
 
@@ -79,72 +79,67 @@ function saveTextAsFile() {
     // Get text from text area
     let textToSave = document.getElementById("textArea").value;
     let textFileAsBlob = new Blob([textToSave], {type: "text/html"});
+    let elementType;
 
-    wchUIExt.getDefinition().then((definition) => {
-        wchUIExt.getElement().then((element) => {
-            if (definition.elementType === "group") {
-                // If the extension is on a custom element (with key "htmleditor")
-                // This extension sample is bundled with a custom element with the above key
-                if (element.value) {
-                    if (element.value["htmleditor"].asset) {
-                        wchSaveFile(element.value["htmleditor"].asset.id, textFileAsBlob);
-                    }
-                } else {
-                    // TODO: Create asset when its a new content
+    wchUIExt.getDefinition().then(definition => {
+        elementType = definition.elementType;
+        return wchUIExt.getElement();
+    }).then(element => {
+        if (elementType === "group") {
+            // If the extension is on a custom element (with key "htmleditor")
+            // This extension sample is bundled with a custom element with the above key
+            if (element.value) {
+                if (element.value["htmleditor"].asset) {
+                    wchSaveFile(element.value["htmleditor"].asset.id, textFileAsBlob);
                 }
             } else {
-                // If the extension is on a File element directly
-                if (element.asset) {
-                    wchSaveFile(element.asset.id, textFileAsBlob);
-                }
+                // TODO: Create asset when its a new content
             }
-        });
+        } else {
+            // If the extension is on a File element directly
+            if (element.asset) {
+                wchSaveFile(element.asset.id, textFileAsBlob);
+            }
+        }
+    }).catch(error => {
+        console.log(error);
     });
 }
 
 // Get the file contents from WCH using the assetID
 function wchGetFile(assetId, editor) {
+    let tenantId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {
-        getAsset(tenantConfig.tenantId, assetId)
-            .then(data => {
-                let response = JSON.parse(data.target.response);
-                getResource(tenantConfig.tenantId, response.resource)
-                    .then(data => {
-                        let response = data.target.response;
-                        editor.setValue(response);
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        tenantId = tenantConfig.tenantId;
+        return getAsset(tenantId, assetId);
+    }).then(assetData => {
+        let response = JSON.parse(assetData.target.response);
+        return getResource(tenantId, response.resource);
+    }).then(resourceData => {
+        let response = resourceData.target.response;
+        editor.setValue(response);
+    }).catch(error => {
+        console.log(error);
     });
 }
 
 // Save the file contents to the given asset using asset path
 function wchSaveFile(assetId, file) {
+    let tenantId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {
-        getAsset(tenantConfig.tenantId, assetId)
-            .then(data => {
-                let response = JSON.parse(data.target.response);
-                updateAsset(tenantConfig.tenantId, file, response.path)
-                    .then(data => {
-                        let response = JSON.parse(data.target.response);
-                        // Toggle save button display
-                        document.getElementById("save-btn").disabled = false;
-                        setButtonText("Save file");
-                    })
-                    .catch(error => {
-                        document.getElementById("save-btn").disabled = false;
-                        console.log(error);
-                    });
-            })
-            .catch(error => {
-                document.getElementById("save-btn").disabled = false;
-                console.log(error);
-            });
+        tenantId = tenantConfig.tenantId;
+        return getAsset(tenantId, assetId);
+    }).then(assetData => {
+        let response = JSON.parse(assetData.target.response);
+        return updateAsset(tenantId, file, response.path);
+    }).then(() => {
+        // Toggle save button display
+        document.getElementById("save-btn").disabled = false;
+        setButtonText("Save file");
+    }).catch(error => {
+        console.log(error);
+        document.getElementById("save-btn").disabled = false;
+        setButtonText("Save file");
     });
 }
 

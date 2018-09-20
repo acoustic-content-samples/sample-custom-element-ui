@@ -1,5 +1,5 @@
 {
-  "name": "HTML editor",
+  "name": "HTML editor v1",
   "classification": "content-type",
   "kind": [
     "embedded",
@@ -10,12 +10,12 @@
   "tags": [],
   "elements": [
     {
-      "elementType": "file",
+      "elementType": "text",
       "label": "HTMLEditor",
-      "key": "htmleditor"
+      "key": "htmleditorv1"
     }
   ],
   "uiExtensions": {
-    "element": "/dxauth/ui-extension-htmleditorv2/index.html"
+    "element": "/dxauth/ui-extension-htmleditorv1/index.html"
   }
 }

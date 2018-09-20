@@ -1,0 +1,22 @@
+{
+  "name": "Color picker",
+  "classification": "content-type",
+  "kind": [
+    "embedded",
+    "custom-ui"
+  ],
+  "description": "",
+  "status": "ready",
+  "tags": [],
+  "elements": [
+    {
+      "elementType": "text",
+      "label": "Color picker",
+      "key": "colorpicker"
+    }
+  ],
+  "icon": "optionselection",
+  "uiExtensions": {
+    "element": "/dxauth/ui-extension-colorpicker/index.html"
+  }
+}
