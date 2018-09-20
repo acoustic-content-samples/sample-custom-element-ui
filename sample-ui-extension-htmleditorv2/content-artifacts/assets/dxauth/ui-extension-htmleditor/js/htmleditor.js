@@ -124,7 +124,6 @@ function wchGetFile(assetId, editor) {
 }
 
 // Save the file contents to the given asset using asset path
-// REFER: http://swagger.rtp.raleigh.ibm.com:4000/?dxHost=9.192.212.88:31676/api&url=http%3A//9.192.212.88%3A31676/api/routing/swagger/prod-authoring-asset#/Authoring_asset/put_assets_resource
 function wchSaveFile(assetId, file) {
     wchUIExt.getTenantConfig().then(tenantConfig => {
         getAsset(tenantConfig.tenantId, assetId)
