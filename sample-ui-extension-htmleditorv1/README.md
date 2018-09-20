@@ -18,11 +18,13 @@ Download this repository. From the content-artifacts directory under this folder
 
 ```wchtools push -A -v -I --publish-now```
 
-A new "HTML editor v1" element will now be available in the content type palette. This element can then be included in other content types.
+A new "Short HTML" element will now be available in the content type palette. This element can then be included in other content types.
 
 Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom design" to be:
 
 ```/dxauth/ui-extension-htmleditorv1/index.html```
+
+To long HTML (ie, longer than 30,000 chars) use the "Long HTML editor" extension.
 
 ## Customising the sample.
 
