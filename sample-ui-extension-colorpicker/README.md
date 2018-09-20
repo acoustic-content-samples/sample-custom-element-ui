@@ -1,8 +1,8 @@
-# Sample UI extension for a dropdown selection with values from a 3rd party API
+# Sample UI extension for a color picker using the HTML5 input element
 
 A sample which provides a color picker that displays the inbuilt browser color picker, letting the content creator specify a color visually.  The value for the selected color is stored in the underlying text element.
 
-The picker is generated in the sample by including an HTML5 input element tag <`input id="colorPicker" type="color" onInput="onInput()">` in the UI extension HTML.
+The picker is generated in the sample by including an HTML5 input element tag `<input id="colorPicker" type="color" onInput="onInput()">` in the UI extension HTML.
 
 ## Screenshot
 
