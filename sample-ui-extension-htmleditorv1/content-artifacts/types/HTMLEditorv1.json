@@ -1,5 +1,5 @@
 {
-  "name": "HTML editor v1",
+  "name": "Short HTML",
   "classification": "content-type",
   "kind": [
     "embedded",
@@ -11,7 +11,7 @@
   "elements": [
     {
       "elementType": "text",
-      "label": "HTMLEditor",
+      "label": "HTML",
       "key": "htmleditorv1"
     }
   ],
