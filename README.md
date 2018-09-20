@@ -40,6 +40,10 @@ More information: [HTML Editor on file asset](sample-ui-extension-htmleditorv2)
 
 More information: [HTML Editor on text element](sample-ui-extension-htmleditorv1)
 
+### Color picker
+
+More information: [Color picker](sample-ui-extension-colorpicker)
+
 ## Installing all of the custom element user interface extensions
 
 Install the latest version of wchtools-cli:
