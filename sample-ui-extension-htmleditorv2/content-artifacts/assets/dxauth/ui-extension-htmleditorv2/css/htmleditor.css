@@ -1,0 +1,15 @@
+.save-btn {
+    margin-top: 20px;
+    font-size: 14px;
+    width: 96px;
+    height: 36px;
+    background-color: #2d74da;
+    border-color: #2d74da;
+    color: #fff;
+}
+
+.save-btn:disabled {
+    background: #fff;
+    border: 1px dashed #777677;
+    color: #777677;
+}

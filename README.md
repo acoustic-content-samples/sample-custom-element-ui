@@ -24,9 +24,17 @@ More information: [Google Maps Location Selector](sample-ui-extension-map)
 
 More information: [Custom CKEditor](sample-ui-extension-rte)
 
-### Emails address showing custom validation
+### Email address showing custom validation
 
 More information: [Email Address with Validation](sample-ui-extension-email)
+
+### HTML editor on a file asset
+
+More information: [HTML Editor on file asset](sample-ui-extension-htmleditorv2)
+
+### HTML editor on a text element
+
+More information: [HTML Editor on text element](sample-ui-extension-htmleditorv1)
 
 ## Installing all of the custom element user interface extensions
 
@@ -96,3 +104,7 @@ This will allow you to point to the custom user interface extension using the fo
 For example:
 
 ```https://localhost:3000/dxauth/ui-extension-email/index.html```
+
+### UI Extension development toolkit
+
+We have also developed a toolkit that provides a mock of the Watson Content Hub (WCH) Authoring Custom user interface extension environment that runs locally. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. No server or WCH environment is needed. This can be accessed via the following link: [UI Extension development toolkit](ui-extensions-dev-toolkit)

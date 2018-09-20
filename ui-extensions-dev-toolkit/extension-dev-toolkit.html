@@ -1,0 +1,209 @@
+<html>
+<head>
+    <script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+        .form-wrap {
+            padding: 20px 20px 20px 40px;
+            border-right: dashed #4CAF50;
+            text-align: center;
+        }
+        .extensionWrapper {
+        }
+        .title {
+            text-align: center;
+            margin: 10px 0 20px;
+            border-bottom: solid gray 1px;
+        }
+        .submitButton {
+            margin: 20px;
+        }
+        .submitButton button {
+            margin: 5px;
+        }
+        .footer {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            color: #4CAF50;
+            background-color: #f5f5f5;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <h1>WCH Authoring UI extension development toolkit</h1>
+</div>
+<div class="row">
+    <div class='form-wrap col-6'>
+        <div class='input' id='valueWrapper'>
+            <div class="contentLabel"><label for='value' >Value</label></div>
+            <textarea id='value' type='email' name='mail' autocomplete='off' rows="10" cols="50">{
+        "elementType": "text",
+        "value": "Some text goes here"
+}</textarea>
+        </div>
+        <div class='input' id='typeWrapper'>
+            <div class="contentLabel"><label for='type' class="contentLabel">Definition</label></div>
+            <textarea id='type' autocomplete='off' rows="10" cols="50" >{}</textarea>
+        </div>
+        <div class='input' id='statusWrapper'>
+            <div class="contentLabel"><label for='status' class="contentLabel">Element is Valid:</label></div>
+            <select id="status" style="font-size: 20px;">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
+    </div>
+    <div class="extensionWrapper col-6">
+        <div class="extensionInputWrapper">
+            <label for="extensionURL">Extension URL: </label><input type="text" id="extensionURL" size="50" value="https://pages.github.ibm.com/DX/ui-extensions-dev-toolkit/simplest-extension.html"/>
+            <div class="submitButton">
+                <button class="loadButton" onclick="createExtensionWithURL()">Init custom extension</button>
+                <button class="loadButton" onclick="createExtensionWithURL('https://pages.github.ibm.com/DX/ui-extensions-dev-toolkit/simplest-extension.html')">Load Simple Extension Inspector</button>
+                <button class="loadButton" onclick="createExtensionWithURL('https://pages.github.ibm.com/DX/sample-ui-extension-map/content-artifacts/assets/dxauth/ui-extension-map/index.html')">Load Google Map Sample</button>
+                <button class="loadButton" onclick="createExtensionWithURL('https://pages.github.ibm.com/DX/sample-ui-extension-email/content-artifacts/assets/dxauth/ui-extension-email/index.html')">Load Email Sample</button>
+                <button class="loadButton" onclick="createExtensionWithURL('https://pages.github.ibm.com/DX/sample-ui-extension-rte/content-artifacts/assets/dxauth/ui-extension-rte/')">Load RTE Sample</button>
+            </div>
+        </div>
+        <div class="extensionIFrameWrapper" id="extensionIFrameWrapper">
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    Powered by erikzbi@au1.ibm.com
+</div>
+<script>
+  'use strict';
+  var valueInput = document.querySelector('#value');
+  var typeInput = document.querySelector('#type');
+  var statusInput = document.querySelector('#status');
+  var extensionURLInput = document.querySelector('#extensionURL');
+  var extensionIFrameWrapper = document.querySelector('#extensionIFrameWrapper');
+  var extensionIFrame;
+  var statusMessage = document.querySelector('#statusMessage');
+  var extensionListener;
+  var listenerArray = new Array();
+
+  function initExtension() {
+    setTimeout(function () {
+      extensionIFrame = document.querySelector('#extension-frame');
+      if (extensionIFrame) {
+        console.log('Extension iFrame exist now', extensionIFrame)
+
+        // let listener = postRobot.listener({ window: extensionIFrame});
+        extensionListener = postRobot.listener({window: extensionIFrame.contentWindow});
+        listenerArray.push(extensionListener.on('updateValue', event => {
+          console.log('UI Extension: receive updateValue, get: ', event.data);
+          var textValue;
+          try {
+            textValue = JSON.stringify(event.data.value, null, 4)
+          } catch (e) {
+            alert('Error parsing the JSON sent from the extension')
+          }
+          valueInput.value = textValue;
+        }));
+
+        listenerArray.push(extensionListener.on('getValue', event => {
+          console.log('UI Extension: receive getValue, return: ', valueInput.value);
+          var jsonValue;
+          try {
+            jsonValue = JSON.parse(valueInput.value)
+          } catch (e) {
+            alert('Error parsing the element JSON.')
+          }
+          console.log('UI Extension: receive getValue, return: ', jsonValue);
+          return jsonValue;
+        }));
+
+        listenerArray.push(extensionListener.on('getDefinition', event => {
+          console.log('UI Extension: receive getDefinition, return: ', typeInput.value);
+          var jsonValue;
+          try {
+            jsonValue = JSON.parse(typeInput.value)
+          } catch (e) {
+            alert('Error parsing the definition JSON.')
+          }
+          return jsonValue;
+        }));
+
+        listenerArray.push(extensionListener.on('updateHeight', event => {
+          if (event && event.data && event.data.height) {
+            console.log('UI Extension: receive updateHeight: ', event.data.height);
+            extensionIFrame.setAttribute('height', event.data.height);
+          } else {
+            console.log('UI Extension: receive updateHeight with invalid data format: ', event);
+          }
+        }));
+
+        listenerArray.push(extensionListener.on('updateValidStatus', event => {
+          if (event && event.data && event.data.valid != null) {
+            console.log('UI Extension: receive updateValidStatus: ', event.data.valid);
+            statusInput.value = event.data.valid;
+            if (event.data.valid === false && event.data.showValidateMessage) {
+              if (event.data.customMessage && event.data.customMessage.trim() !== '') {
+                statusMessage.innerHTML = event.data.customMessage;
+              }
+            }
+          } else {
+            console.log('UI Extension: receive updateValidStatus with invalid data format: ', event);
+          }
+        }));
+
+        // // Validate text element for ready
+        // $scope.$on('valueValidate', (angularEvent: ng.IAngularEvent) => {
+        //   postRobot.send(extensionIFrame.contentWindow, 'valueValidate', {}).then(event => {
+        //     if (event && event.data && event.data.valid != null) {
+        //       statusInput.value = event.data.valid;
+        //       if (event.data.valid === false && event.data.showValidateMessage) {
+        //         if (event.data.customMessage && event.data.customMessage.trim() !== '') {
+        //           statusMessage.innerHTML = event.data.customMessage;
+        //         }
+        //       }
+        //     }
+        //   });
+        // });
+      } else {
+        console.log('Extension iFrame not exist yet, try again')
+        initExtension();
+      }
+    }, 100);
+  }
+
+  function createExtensionWithURL(url) {
+    var rawUrl = url;
+    if (rawUrl == null) {
+      rawUrl = extensionURLInput.value;
+    }
+    if (rawUrl.trim() === '' || rawUrl.indexOf('http') !== 0) {
+      alert('invalid extension url')
+      return;
+    }
+    extensionIFrameWrapper.innerHTML = '';
+    if (extensionListener) {
+      listenerArray.forEach(function(listener) {
+        listener.cancel();
+        listener = null;
+      });
+      listenerArray = new Array();
+      extensionListener = null;
+    }
+    var queryParamChar = !rawUrl.includes('?') ? '?' : '&';
+    var uniqueUrl = rawUrl + queryParamChar + 'unique=' + getNumberFromMilliseconds(4);
+    var iframeInnerHTML = `<iframe iframe width='100%' height='300px' frameborder='0' src=${uniqueUrl} id='extension-frame' name='extension-frame'></iframe>`;
+    extensionIFrameWrapper.innerHTML = iframeInnerHTML;
+    initExtension();
+  }
+
+  function getNumberFromMilliseconds(digits = 4) {
+    let time = new Date().getTime().toString();
+    if (time.length >= digits) {
+      time = time.substr(time.length - digits);
+    }
+    return time;
+  }
+
+</script></body>
+</html>

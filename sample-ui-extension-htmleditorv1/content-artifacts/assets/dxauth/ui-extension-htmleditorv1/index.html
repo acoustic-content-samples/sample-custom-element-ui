@@ -1,0 +1,115 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://codemirror.net/lib/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="https://codemirror.net/addon/lint/lint.css">
+    <script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/css/css.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+
+    <script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
+
+    <script>
+        /*
+            Copyright IBM Corporation 2018
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+                http://www.apache.org/licenses/LICENSE-2.0
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        */
+        function onLoad() {
+            var textArea = document.getElementById("textArea");
+            var editor = CodeMirror.fromTextArea(textArea, {
+                mode: "text/html"
+            });
+            editor.setSize(500, 500);
+            editor.on("change", onEditorChange);
+
+            wchUIExt.requestResizeFrame(500);
+
+            // Set editor content
+            wchUIExt.getDefinition().then((definition) => {
+                // Check if content is published
+                if (definition.disabled) {
+                    editor.setOption("readOnly", true);
+                }
+                wchUIExt.getElement().then((element) => {
+                    if (definition.elementType === "group") {
+                        // If the extension is on a custom element (with key "htmleditorv1")
+                        // This extension sample is bundled with a custom element with the above key
+                        if (element.value) {
+                            if (element.value["htmleditorv1"].value) {
+                                editor.setValue(element.value["htmleditorv1"].value);
+                            }
+                        }
+                    } else {
+                        // If not a group element, then set value directly to text element
+                        if (element.value) {
+                            editor.setValue(element.value);
+                        }
+                    }
+                });
+            });
+        }
+
+        function onEditorChange(cm, change) {
+            wchUIExt.getDefinition().then((definition) => {
+                if (definition.elementType === "group") {
+                    wchUIExt.setElement({
+                        elementType: "group",
+                        typeRef: definition.typeRef,
+                        value: {
+                            "htmleditorv1": {
+                                elementType: "text",
+                                value: cm.getValue()
+                            }
+                        }
+                    });
+                } else {
+                    wchUIExt.setElement({
+                        elementType: "text",
+                        value: cm.getValue()
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div style="border: 1px solid black; padding: 3px;">
+        <textarea id="textArea">
+&lt;html>
+  &lt;head>
+    &lt;title>HTML Example&lt;/title>
+    &lt;script type="text/javascript">
+      function foo(bar, baz) {
+        alert("quux");
+        return bar + baz + 1;
+      }
+    &lt;/script>
+    &lt;style type="text/css">
+      div.border {
+        border: 1px solid black;
+        padding: 3px;
+      }
+      #foo code {
+        font-family: courier, monospace;
+        font-size: 80%;
+        color: #448888;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;p>Duh&lt;/p>
+  &lt;/body>
+&lt;/html>
+        </textarea>
+    </div>
+</body>
+</html>
