@@ -105,4 +105,6 @@ For example:
 
 ```https://localhost:3000/dxauth/ui-extension-email/index.html```
 
+### UI Extension development toolkit
+
 We have also developed a toolkit that provides a mock of the Watson Content Hub (WCH) Authoring Custom user interface extension environment that runs locally. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. No server or WCH environment is needed. This can be accessed via the following link: [UI Extension development toolkit](ui-extensions-dev-toolkit)
