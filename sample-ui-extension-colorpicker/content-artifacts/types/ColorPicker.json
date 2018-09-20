@@ -1,5 +1,5 @@
 {
-  "name": "Color picker",
+  "name": "Color",
   "classification": "content-type",
   "kind": [
     "embedded",
@@ -11,7 +11,7 @@
   "elements": [
     {
       "elementType": "text",
-      "label": "Color picker",
+      "label": "Color",
       "key": "colorpicker"
     }
   ],
