@@ -19,7 +19,7 @@ Download this repository. From the content-artifacts directory under this folder
 
 ```wchtools push -A -v -I --publish-now```
 
-A new "Color picker" element will now be available in the content type palette. This element can then be included in other content types.
+A new "Color" element will now be available in the content type palette. This element can then be included in other content types.
 
 Alternatively, you can customise the display of an existing text element in one of your content types to display the UI extension by setting the "custom design" to be:
 
