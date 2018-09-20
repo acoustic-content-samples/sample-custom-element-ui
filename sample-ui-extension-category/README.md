@@ -1,6 +1,6 @@
 # Sample UI extension for a category selection from a custom taxonomy
 
-A samples that extends the Authoring interface of Watson Content Hub to provide a category selector. The selections are hardcoded as a JSON file in the sample, but can easily be customised to come from a 3rd party Rest API. The multi-level category selection widget is styled to look like the other dropdowns in the WCH UI, such as for the category element. 
+A samples that extends the Authoring interface of Watson Content Hub to provide a category selector. The selections are hardcoded as a JSON file in the sample, but can easily be customised to come from a 3rd party Rest API. The multi-level category selection widget is styled to look like the other dropdowns in the WCH UI, such as for the category element.
 
 To customise the source of the selections, edit the file ```content-artifacts/assets/dxauth/ui-extension-category/js/category.js``` to use your Rest API, rather than using the fixed JSON that is supplied there for demonstration purposes.
 
@@ -16,7 +16,7 @@ Make sure that you have initialized wchtools with your user and tenant API URL. 
 
 Download this repository. From the content-artifacts directory under this folder run
 
-```wchtools push -A -v -I```
+```wchtools push -A -v -I --publish-now```
 
 The "Custom Category" element is now available for use in your content types. This element can then be included in other content types.
 
