@@ -15,6 +15,7 @@
       "key": "htmleditorv1"
     }
   ],
+  "icon": "formattedtext",
   "uiExtensions": {
     "element": "/dxauth/ui-extension-htmleditorv1/index.html"
   }
