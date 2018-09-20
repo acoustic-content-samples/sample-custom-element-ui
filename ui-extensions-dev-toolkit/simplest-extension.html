@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/post-robot/dist/post-robot.min.js"></script>
+    <script src="https://unpkg.com/@ibm-wch/ui-extensions/dist/ibm-wch-sdk-ui-extensions.js"></script>
+    <style>
+        .contentLabel {
+            font-weight: bold;
+            margin: 20px 0;
+
+        }
+
+        .inspect {
+            display: none;
+        }
+
+        .submitButton {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class='inspect'>
+    <div>
+        <pre>
+            <code id='config'>
+            </code>
+        </pre>
+    </div>
+    <div>
+        <pre>
+            <code id='elements'>
+            </code>
+        </pre>
+    </div>
+</div>
+
+<div class='form-wrap'>
+    <div class='input' id='valueWrapper'>
+        <div class="contentLabel"><label for='value' >Value</label></div>
+        <textarea id='value' type='email' name='mail' autocomplete='off' rows="10" cols="50"></textarea>
+        <div class="submitButton">
+            <button onclick="setValue()">Set Value</button>
+        </div>
+        <div class="submitButton">
+            <button onclick="getValue()">Get Value</button>
+        </div>
+    </div>
+    <div class='input' id='typeWrapper'>
+        <div class="contentLabel"><label for='type' class="contentLabel">Type</label></div>
+        <textarea id='type' type='email' name='mail' autocomplete='off' rows="10" cols="50" readonly></textarea>
+        <div class="submitButton">
+            <button onclick="getDefinition()">Get Definition</button>
+        </div>
+    </div>
+    <div class='input' id='statusWrapper'>
+        <div class="contentLabel"><label for='status' class="contentLabel">Element is valid:</label></div>
+        <select id="status" style="font-size: 20px;">
+            <option value="true">true</option>
+            <option value="saab">false</option>
+        </select>
+        <div id="statusMessage">
+        </div>
+        <div class="submitButton">
+            <button onclick="submitValidate()">Set Status</button>
+        </div>
+    </div>
+</div>
+<script>
+  'use strict';
+  var valueInput = document.querySelector('#value');
+  var typeInput = document.querySelector('#type');
+  var statusInput = document.querySelector('#status');
+
+  /**
+   * submit value when the value is changed
+   * @param newValue
+   */
+  function setValue() {
+    console.log("value: ", valueInput.value)
+    console.log("value parse:", JSON.parse(valueInput.value))
+    wch.setElement(JSON.parse(valueInput.value));
+  }
+
+  function getValue() {
+    wch.getElement().then((value) => {
+      if (value) {
+        valueInput.value = JSON.stringify(value, null, 4);
+      }
+    });
+  }
+
+  function getDefinition() {
+    wch.getDefinition().then((definition) => {
+      if (definition) {
+        typeInput.value = JSON.stringify(definition, null, 4);
+      }
+    });
+  }
+
+  function submitValidate() {
+    var valid = statusInput.value;
+    wch.setValid(valid === 'true')
+  }
+
+  (function(){
+    // get value and definition from WCH
+    wch.getDefinition().then((definition) => {
+      if (definition) {
+        typeInput.value = JSON.stringify(definition, null, 4);
+      }
+      wch.getElement().then((value) => {
+        if (value) {
+          valueInput.value = JSON.stringify(value, null, 4);
+        }
+      });
+    });
+    wch.requestResizeFrame(1000);
+    // register own callback to handle the validate request from WCH
+    wch.on('validate', submitValidate);
+
+  })();
+</script>
+</body>
+</html>
