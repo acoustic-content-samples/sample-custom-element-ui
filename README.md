@@ -16,6 +16,10 @@ More information: [Dropdown Song Selector](sample-ui-extension-dropdown)
 
 More information: [Custom Category Selector](sample-ui-extension-category)
 
+### Color element
+
+More information: [Color element](sample-ui-extension-colorpicker)
+
 ### Google Maps location selection
 
 More information: [Google Maps Location Selector](sample-ui-extension-map)
