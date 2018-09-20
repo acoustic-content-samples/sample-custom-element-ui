@@ -1,5 +1,5 @@
 {
-  "name": "HTML editor",
+  "name": "Long HTML",
   "classification": "content-type",
   "kind": [
     "embedded",
@@ -11,7 +11,7 @@
   "elements": [
     {
       "elementType": "file",
-      "label": "HTMLEditor",
+      "label": "HTML",
       "key": "htmleditor"
     }
   ],
