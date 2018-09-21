@@ -4,7 +4,11 @@ This sample is an HTML, JS and CSS editor element with syntax highlighting. Usef
 
 The sample saves the HTML as a file asset. The content item references the file asset using a file element. The reason for this is that (1) file assets can be any size, where content item are limited in size and (2) the file assets can then be accessed via the WCH dev tools in a more natural way - as files, rather than as HTML embedded (and JSON escaped) in JSON.
 
-Limitation: The sample assumes that the file asset has been provisioned up front, so that the content already references an existing asset. There's a small bit of work to do to create the file asset as required.
+#### Limitations
+
+The sample assumes that the file asset has been provisioned up front, so that the content already references an existing asset. This file asset that it references has to also be **published**.
+
+There's a small bit of work to do to create the file asset if required, comments have been made in the ```content-artifacts/assets/dxauth/ui-extension-htmleditor/js/htmleditor.js``` file if you wish to extend this behaviour.
 
 ## Screenshot
 
