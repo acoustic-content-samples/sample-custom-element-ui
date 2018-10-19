@@ -232,7 +232,7 @@ function updateAsset(tenantId, file, assetPath) {
 
 // Get asset in order to get the resource that is attached to the asset (content doesn't hold resource information for files)
 function getAsset(tenantId, assetId) {
-    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId;
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId + "?projectId=draft";
     let method = "GET";
     let shouldBeAsync = true;
 
@@ -260,7 +260,8 @@ function createAssetAndResource(tenantId, file) {
     let method = "POST";
     let shouldBeAsync = true;
 
-    let data = JSON.stringify({ status: "ready" });
+    // Create draft file resource using multipart form request
+    let data = JSON.stringify({ status: "draft" });
     file.name = new Date().getTime() + ".html";
     let formData = new FormData();
     formData.append("resource", file, file.name);
