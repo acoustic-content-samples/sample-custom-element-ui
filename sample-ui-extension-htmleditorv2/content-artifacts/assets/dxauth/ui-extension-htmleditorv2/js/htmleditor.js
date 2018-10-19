@@ -21,7 +21,7 @@ function onLoad() {
     });
 
     // Set editor settings
-    editor.setSize(500, 500);
+    editor.setSize(500, 400);
     editor.on("change", onEditorChange);
     editor.setValue("Loading...");
 
@@ -43,14 +43,18 @@ function onLoad() {
                 if (element.value) {
                     if (element.value["htmleditor"].asset) {
                         wchGetFile(element.value["htmleditor"].asset.id, editor);
+                    } else {
+                        editor.setValue("");
                     }
                 } else {
-                    // TODO: Create asset when its a new content
+                    editor.setValue("");
                 }
             } else {
                 // If the extension is on a File element directly
                 if (element.asset) {
                     wchGetFile(element.asset.id, editor);
+                } else {
+                    editor.setValue("");
                 }
             }
         });
@@ -80,8 +84,10 @@ function saveTextAsFile() {
     let textToSave = document.getElementById("textArea").value;
     let textFileAsBlob = new Blob([textToSave], {type: "text/html"});
     let elementType;
+    let elementDef;
 
     wchUIExt.getDefinition().then(definition => {
+        elementDef = definition;
         elementType = definition.elementType;
         return wchUIExt.getElement();
     }).then(element => {
@@ -93,12 +99,16 @@ function saveTextAsFile() {
                     wchSaveFile(element.value["htmleditor"].asset.id, textFileAsBlob);
                 }
             } else {
-                // TODO: Create asset when its a new content
+                // Create asset when its a new content
+                wchCreateFile(textFileAsBlob, elementDef);
             }
         } else {
             // If the extension is on a File element directly
             if (element.asset) {
                 wchSaveFile(element.asset.id, textFileAsBlob);
+            } else {
+                // Create asset when its a new content
+                wchCreateFile(textFileAsBlob, elementDef);
             }
         }
     }).catch(error => {
@@ -132,6 +142,48 @@ function wchSaveFile(assetId, file) {
     }).then(assetData => {
         let response = JSON.parse(assetData.target.response);
         return updateAsset(tenantId, file, response.path);
+    }).then(() => {
+        // Toggle save button display
+        document.getElementById("save-btn").disabled = false;
+        setButtonText("Save file");
+    }).catch(error => {
+        console.log(error);
+        document.getElementById("save-btn").disabled = false;
+        setButtonText("Save file");
+    });
+}
+
+// Create and save new file
+function wchCreateFile(file, definition) {
+    let tenantId = "";
+    wchUIExt.getTenantConfig().then(tenantConfig => {
+        tenantId = tenantConfig.tenantId;
+        return createAssetAndResource(tenantId, file);
+    }).then(assetData => {
+        let response = JSON.parse(assetData.target.response);
+        let jsonToSet = {};
+        if (definition.elementType === "group") {
+            jsonToSet = {
+                elementType: "group",
+                typeRef: definition.typeRef,
+                value: {
+                    "htmleditor": {
+                        elementType: "file",
+                        asset: {
+                            id: response.id
+                        }
+                    }
+                }
+            };
+        } else {
+            jsonToSet = {
+                elementType: "file",
+                asset: {
+                    id: response.id
+                }
+            };
+        }
+        return wchUIExt.setElement(jsonToSet);
     }).then(() => {
         // Toggle save button display
         document.getElementById("save-btn").disabled = false;
@@ -202,8 +254,31 @@ function setButtonText(text) {
     button.innerText = text;
 }
 
+// Creates an asset and resource given a file
+function createAssetAndResource(tenantId, file) {
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets";
+    let method = "POST";
+    let shouldBeAsync = true;
+
+    let data = JSON.stringify({ status: "ready" });
+    file.name = new Date().getTime() + ".html";
+    let formData = new FormData();
+    formData.append("resource", file, file.name);
+    formData.append("data", data);
+
+    return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        request.onload = resolve;
+        request.onerror = reject;
+
+        request.open(method, assetUrl, shouldBeAsync);
+        request.setRequestHeader("Cache-Control", "no-store, no-cache");
+        request.send(formData);
+    });
+}
+
 ////////////////////
-// FOR FUTURE USE //
+///// OPTIONAL /////
 ////////////////////
 
 // NOTE: Currently not used. For future use when creating asset/resource for first time
@@ -221,10 +296,4 @@ function createResource(tenantId, file) {
         request.setRequestHeader("Content-Type", "text/html");
         request.send(file);
     });
-}
-
-
-// TODO for when creating new assets
-function createAsset() {
-    // let assetURL = "/api/authoring/v1/assets";
 }
