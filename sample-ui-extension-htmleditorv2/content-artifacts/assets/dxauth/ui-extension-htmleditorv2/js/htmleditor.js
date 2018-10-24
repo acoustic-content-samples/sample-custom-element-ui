@@ -136,12 +136,23 @@ function wchGetFile(assetId, editor) {
 // Save the file contents to the given asset using asset path
 function wchSaveFile(assetId, file) {
     let tenantId = "";
+    let resourceId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {
         tenantId = tenantConfig.tenantId;
+        return createResource(tenantId, file);
+    }).then(resourceData => {
+        let response = JSON.parse(resourceData.target.response);
+        resourceId = response.id;
         return getAsset(tenantId, assetId);
     }).then(assetData => {
         let response = JSON.parse(assetData.target.response);
-        return updateAsset(tenantId, file, response.path);
+        if (response.status == "ready") {
+            return createDraftAsset(tenantId, assetId).then(draftAsset => {
+                let draftAssetResponse = JSON.parse(draftAsset.target.response);
+                return updateAsset(tenantId, draftAssetResponse.id, resourceId);
+            });
+        }
+        return updateAsset(tenantId, response.id, resourceId);
     }).then(() => {
         // Toggle save button display
         document.getElementById("save-btn").disabled = false;
@@ -212,9 +223,10 @@ function getResource(tenantId, resourceId) {
     });
 }
 
-// Update the asset with the new resource. Creates resource and updates asset with 1 call
-function updateAsset(tenantId, file, assetPath) {
-    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/resource?path=" + assetPath;
+// CURRENTLY NOT USED since it does not update draft asset if there is already a published asset
+// Updates the asset with the new resource. Creates resource and updates asset with 1 call
+function updateAssetWithPath(tenantId, file, assetPath) {
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/resource?path=" + assetPath + "&projectId=draft";
     let method = "PUT";
     let shouldBeAsync = true;
 
@@ -227,6 +239,24 @@ function updateAsset(tenantId, file, assetPath) {
         request.setRequestHeader("Cache-Control", "no-store, no-cache");
         request.setRequestHeader("Content-Type", "text/html");
         request.send(file);
+    });
+}
+
+// Update the asset with the new resource
+function updateAsset(tenantId, assetId, resourceId) {
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId + "?forceOverride=true";
+    let method = "PUT";
+    let shouldBeAsync = true;
+    let data = JSON.stringify({ resource: resourceId });
+
+    return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        request.onload = resolve;
+        request.onerror = reject;
+
+        request.open(method, assetUrl, shouldBeAsync);
+        request.setRequestHeader("Cache-Control", "no-store, no-cache");
+        request.send(data);
     });
 }
 
@@ -248,10 +278,21 @@ function getAsset(tenantId, assetId) {
     });
 }
 
-// Set button text
-function setButtonText(text) {
-    var button = document.getElementById("save-btn");
-    button.innerText = text;
+// Create draft asset from existing asset
+function createDraftAsset(tenantId, assetId) {
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId + "/create-draft";
+    let method = "POST";
+    let shouldBeAsync = true;
+
+    return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        request.onload = resolve;
+        request.onerror = reject;
+
+        request.open(method, assetUrl, shouldBeAsync);
+        request.setRequestHeader("Cache-Control", "no-store, no-cache");
+        request.send();
+    });
 }
 
 // Creates an asset and resource given a file
@@ -278,12 +319,15 @@ function createAssetAndResource(tenantId, file) {
     });
 }
 
-////////////////////
-///// OPTIONAL /////
-////////////////////
+// Set button text
+function setButtonText(text) {
+    var button = document.getElementById("save-btn");
+    button.innerText = text;
+}
 
-// NOTE: Currently not used. For future use when creating asset/resource for first time
+// Creates a resource from a file
 function createResource(tenantId, file) {
+    file.name = new Date().getTime() + ".html";
     let resourceUrl = "/api/" + tenantId + "/authoring/v1/resources?name=" + encodeURIComponent(file.name);
     let method = "POST";
     let shouldBeAsync = true;
