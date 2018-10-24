@@ -20,6 +20,8 @@ function onLoad() {
         lineWrapping: true
     });
 
+    var isPublished = false;
+
     // Set editor settings
     editor.setSize(500, 400);
     editor.on("change", onEditorChange);
@@ -35,6 +37,7 @@ function onLoad() {
             document.getElementById("save-btn").style.display = "none";
             editor.setOption("readOnly", true);
             wchUIExt.requestResizeFrame(420);
+            isPublished = true;
         }
         wchUIExt.getElement().then((element) => {
             if (definition.elementType === "group") {
@@ -42,7 +45,7 @@ function onLoad() {
                 // This extension sample is bundled with a custom element with the above key
                 if (element.value) {
                     if (element.value["htmleditor"].asset) {
-                        wchGetFile(element.value["htmleditor"].asset.id, editor);
+                        wchGetFile(element.value["htmleditor"].asset.id, editor, isPublished);
                     } else {
                         editor.setValue("");
                     }
@@ -52,7 +55,7 @@ function onLoad() {
             } else {
                 // If the extension is on a File element directly
                 if (element.asset) {
-                    wchGetFile(element.asset.id, editor);
+                    wchGetFile(element.asset.id, editor, isPublished);
                 } else {
                     editor.setValue("");
                 }
@@ -117,11 +120,11 @@ function saveTextAsFile() {
 }
 
 // Get the file contents from WCH using the assetID
-function wchGetFile(assetId, editor) {
+function wchGetFile(assetId, editor, isPublished) {
     let tenantId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {
         tenantId = tenantConfig.tenantId;
-        return getAsset(tenantId, assetId);
+        return getAsset(tenantId, assetId, isPublished);
     }).then(assetData => {
         let response = JSON.parse(assetData.target.response);
         return getResource(tenantId, response.resource);
@@ -261,8 +264,12 @@ function updateAsset(tenantId, assetId, resourceId) {
 }
 
 // Get asset in order to get the resource that is attached to the asset (content doesn't hold resource information for files)
-function getAsset(tenantId, assetId) {
-    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId + "?projectId=draft";
+function getAsset(tenantId, assetId, isPublished) {
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId;
+    // If the content is draft, then show the draft asset if it exists
+    if (!isPublished) {
+        assetUrl += "?projectId=draft";
+    }
     let method = "GET";
     let shouldBeAsync = true;
 
