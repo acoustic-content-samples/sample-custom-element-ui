@@ -266,7 +266,7 @@ function updateAsset(tenantId, assetId, resourceId) {
 // Get asset in order to get the resource that is attached to the asset (content doesn't hold resource information for files)
 function getAsset(tenantId, assetId, isPublished) {
     let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId;
-    // If the content is not draft, then show the draft asset if it exists
+    // If the content is draft, then show the draft asset if it exists
     if (!isPublished) {
         assetUrl += "?projectId=draft";
     }
