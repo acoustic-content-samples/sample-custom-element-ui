@@ -85,7 +85,7 @@ enable the Custom UI in the content type that is using it, again, as shown in th
 
 ## Running, testing and debugging custom user interface extensions locally
 
-In order to run/testing/debugging your Custom UI it is useful to be able to run the Custom user interface extension locally (ie on localhost) and have them appear in the WCH Authoring UI. To do this, follow these steps:
+Whilst developing Customer user interfaces, we do not recommend that you push the user interface to the hub each time that you make an updates. A much faster way to run/testing/debugging your Custom UI is to run the Custom user interface extension locally (ie on localhost), and point the element in the WCH Authoring UI at the UI extension running on your localhost. To do this, follow these steps:
 
 First create a self-signed certificate and fill in the given details:
 
@@ -109,6 +109,11 @@ For example:
 
 ```https://localhost:3000/dxauth/ui-extension-email/index.html```
 
+Enter this URL in the WCH Authoring UI for the element for which wish to use a custom UI.
+
+When you have completed development, push the custom UI files to the hub for final testing and use. The web files in the hub are cached by Akamai for 10 minutes, so you will not see these updates appear in the WCH Authoring UI for 10 minutes after they are pushed.
+
 ### UI Extension development toolkit
 
-We have also developed a toolkit that provides a mock of the Watson Content Hub (WCH) Authoring Custom user interface extension environment that runs locally. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. No server or WCH environment is needed. This can be accessed via the following link: [UI Extension development toolkit](ui-extensions-dev-toolkit)
+We have also developed a toolkit that provides a mock of the Watson Content Hub (WCH) Authoring Custom user interface extension environment that runs locally. The use of the toolkit is optional - use it only if you find it helpful. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. In this way, an extension can be developer and tested without the requirement for a localhost server or pushing the files to a WCH hub. This can be accessed via the following link: [UI Extension development toolkit](ui-extensions-dev-toolkit). When development and testing of the custom UI extension is complete, the files can then be run from localhost as described above, and then push the files to the WCH hub for final testing and use.
+
