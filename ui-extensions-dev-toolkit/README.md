@@ -26,11 +26,4 @@ Your UI extension will be rendered on the right side of the screen. In your exte
 
 Using this, you can develop your UI extension without needing to push it into the WCH environment.
 
-### Demo:
-
-![inspector](https://media.github.ibm.com/user/6525/files/95b1194c-65a9-11e8-989f-60f3a7240c69)
-
-To help you get started, you can click on buttons to see some of the IBM provided UI extension samples:
-
-![map](https://media.github.ibm.com/user/6525/files/015579fe-65aa-11e8-8d18-15d3bba48727)
 
