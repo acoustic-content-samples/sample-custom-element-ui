@@ -35,11 +35,13 @@ function onLoad() {
         // Check if content is published
         if (definition.disabled) {
             document.getElementById("save-btn").style.display = "none";
+            document.getElementById("cancel-btn").style.display = "none";
             editor.setOption("readOnly", true);
             wchUIExt.requestResizeFrame(420);
             isPublished = true;
         }
         wchUIExt.getElement().then((element) => {
+            document.getElementById("cancel-btn").disabled = true;
             if (definition.elementType === "group") {
                 // If the extension is on a custom element (with key "htmleditor")
                 // This extension sample is bundled with a custom element with the above key
@@ -77,9 +79,45 @@ function onSaveClick() {
     // Unfocus and disable button
     document.getElementById("save-btn").blur();
     document.getElementById("save-btn").disabled = true;
-    setButtonText("Saving...");
+    setButtonText("save-btn", "Saving...");
     // Save content from editor to a Binary for updating asset
     saveTextAsFile();
+}
+
+// Action when cancel button clicked
+function onCancelClick() {
+    let editor = $('.CodeMirror')[0].CodeMirror;
+    // Unfocus and disable button
+    document.getElementById("cancel-btn").blur();
+    document.getElementById("cancel-btn").disabled = true;
+    setButtonText("cancel-btn", "Cancelling...");
+    // Delete the draft asset
+    let elementType;
+    let elementDef;
+    wchUIExt.getDefinition().then(definition => {
+        elementDef = definition;
+        elementType = definition.elementType;
+        return wchUIExt.getElement();
+    }).then(element => {
+        if (elementType === "group") {
+            // If the extension is on a custom element (with key "htmleditor")
+            // This extension sample is bundled with a custom element with the above key
+            if (element.value) {
+                if (element.value["htmleditor"].asset) {
+                    wchDeleteFile(elementDef, element.value["htmleditor"].asset.id, editor);
+                    wchGetFile(element.value["htmleditor"].asset.id, editor, elementDef.disabled);
+                }
+            }
+        } else {
+            // If the extension is on a File element directly
+            if (element.asset) {
+                wchDeleteFile(elementDef, element.asset.id, editor);
+                wchGetFile(element.asset.id, editor, elementDef.disabled);
+            }
+        }
+    }).catch(error => {
+        console.log(error);
+    });
 }
 
 function saveTextAsFile() {
@@ -124,10 +162,23 @@ function wchGetFile(assetId, editor, isPublished) {
     let tenantId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {
         tenantId = tenantConfig.tenantId;
-        return getAsset(tenantId, assetId, isPublished);
-    }).then(assetData => {
-        let response = JSON.parse(assetData.target.response);
-        return getResource(tenantId, response.resource);
+        let getAssetPromise = getAsset(tenantId, assetId, isPublished);
+        let getPublishedAssetPromise = getAsset(tenantId, assetId, true);
+        return Promise.all([getAssetPromise, getPublishedAssetPromise]);
+    }).then(results => {
+        let resource = "";
+        let noPublishedAsset = false;
+        results.forEach(assetData => {
+            if (assetData.target.status === 404) {
+                noPublishedAsset = true
+            } else {
+                resource = JSON.parse(assetData.target.response).resource;
+            }
+        });
+        if (!noPublishedAsset) {
+            document.getElementById("cancel-btn").disabled = false;
+        }
+        return getResource(tenantId, resource);
     }).then(resourceData => {
         let response = resourceData.target.response;
         editor.setValue(response);
@@ -159,11 +210,11 @@ function wchSaveFile(assetId, file) {
     }).then(() => {
         // Toggle save button display
         document.getElementById("save-btn").disabled = false;
-        setButtonText("Save file");
+        setButtonText("save-btn", "Save file");
     }).catch(error => {
         console.log(error);
         document.getElementById("save-btn").disabled = false;
-        setButtonText("Save file");
+        setButtonText("save-btn", "Save file");
     });
 }
 
@@ -201,11 +252,27 @@ function wchCreateFile(file, definition) {
     }).then(() => {
         // Toggle save button display
         document.getElementById("save-btn").disabled = false;
-        setButtonText("Save file");
+        setButtonText("save-btn", "Save file");
     }).catch(error => {
         console.log(error);
         document.getElementById("save-btn").disabled = false;
-        setButtonText("Save file");
+        setButtonText("save-btn", "Save file");
+    });
+}
+
+function wchDeleteFile(definition, assetId, editor) {
+    let tenantId = "";
+    wchUIExt.getTenantConfig().then(tenantConfig => {
+        tenantId = tenantConfig.tenantId;
+        return cancelDraftAsset(tenantId, assetId, definition.disabled);
+    }).then(data => {
+        console.log(data);
+        document.getElementById("cancel-btn").disabled = false;
+        setButtonText("cancel-btn", "Cancel");
+    }).catch(error => {
+        console.log(error);
+        document.getElementById("cancel-btn").disabled = false;
+        setButtonText("cancel-btn", "Cancel");
     });
 }
 
@@ -302,6 +369,26 @@ function createDraftAsset(tenantId, assetId) {
     });
 }
 
+// Cancel draft asset
+function cancelDraftAsset(tenantId, assetId, isPublished) {
+    if (!isPublished) {
+        assetId += ":draft";
+    }
+    let assetUrl = "/api/" + tenantId + "/authoring/v1/assets/" + assetId;
+    let method = "DELETE";
+    let shouldBeAsync = true;
+
+    return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        request.onload = resolve;
+        request.onerror = reject;
+
+        request.open(method, assetUrl, shouldBeAsync);
+        request.setRequestHeader("Cache-Control", "no-store, no-cache");
+        request.send();
+    });
+}
+
 // Creates an asset and resource given a file
 function createAssetAndResource(tenantId, file) {
     let assetUrl = "/api/" + tenantId + "/authoring/v1/assets";
@@ -327,8 +414,8 @@ function createAssetAndResource(tenantId, file) {
 }
 
 // Set button text
-function setButtonText(text) {
-    var button = document.getElementById("save-btn");
+function setButtonText(buttonId, text) {
+    var button = document.getElementById(buttonId);
     button.innerText = text;
 }
 

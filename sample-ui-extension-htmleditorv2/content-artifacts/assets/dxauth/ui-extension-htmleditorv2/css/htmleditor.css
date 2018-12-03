@@ -8,8 +8,18 @@
     color: #fff;
 }
 
-.save-btn:disabled {
+.save-btn:disabled, .cancel-btn:disabled {
     background: #fff;
     border: 1px dashed #777677;
     color: #777677;
+}
+
+.cancel-btn {
+    margin-top: 20px;
+    font-size: 14px;
+    width: 96px;
+    height: 36px;
+    color: #2d74da;
+    background-color: #FFFFFF;
+    border-color: #2d74da;
 }
