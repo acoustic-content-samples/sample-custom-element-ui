@@ -100,10 +100,10 @@ function saveTextAsFile() {
             if (element.value) {
                 if (element.value["htmleditor"].asset) {
                     wchSaveFile(element.value["htmleditor"].asset.id, textFileAsBlob);
+                } else {
+                    // Create asset when its a new content
+                    wchCreateFile(textFileAsBlob, elementDef);
                 }
-            } else {
-                // Create asset when its a new content
-                wchCreateFile(textFileAsBlob, elementDef);
             }
         } else {
             // If the extension is on a File element directly
