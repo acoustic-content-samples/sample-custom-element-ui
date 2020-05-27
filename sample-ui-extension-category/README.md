@@ -1,6 +1,6 @@
 # Sample UI extension for a category selection from a custom taxonomy
 
-A samples that extends the Authoring interface of Watson Content Hub to provide a category selector. The selections are hardcoded as a JSON file in the sample, but can easily be customised to come from a 3rd party Rest API. The multi-level category selection widget is styled to look like the other dropdowns in the WCH UI, such as for the category element.
+A samples that extends the Authoring interface of Acoustic Content to provide a category selector. The selections are hardcoded as a JSON file in the sample, but can easily be customised to come from a 3rd party Rest API. The multi-level category selection widget is styled to look like the other dropdowns in the WCH UI, such as for the category element.
 
 To customise the source of the selections, edit the file ```content-artifacts/assets/dxauth/ui-extension-category/js/category.js``` to use your Rest API, rather than using the fixed JSON that is supplied there for demonstration purposes.
 
@@ -8,7 +8,7 @@ To customise the source of the selections, edit the file ```content-artifacts/as
 
 ![image](https://user-images.githubusercontent.com/7553535/42615995-e6e9f3ea-85ef-11e8-9cfa-b968cbbf1046.png)
 
-## Install the sample into Watson Content Hub
+## Install the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 

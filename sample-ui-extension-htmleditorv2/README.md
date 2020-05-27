@@ -10,7 +10,7 @@ The sample is a good example of a more general pattern - wrapping an asset in a 
 
 ![screen shot 2018-09-10 at 4 33 16 pm](https://media.github.ibm.com/user/152536/files/4cde23d2-b517-11e8-9a2b-b8d1f051af3a)
 
-## Installing the sample into Watson Content Hub
+## Installing the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 

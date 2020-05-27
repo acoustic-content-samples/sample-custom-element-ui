@@ -9,7 +9,7 @@ The picker is generated in the sample by including an HTML5 input element tag `<
 ![screen shot 2018-09-20 at 2 03 12 pm](https://media.github.ibm.com/user/152536/files/f6f91278-bcdd-11e8-9986-02d2c4ee0be0)
 
 
-## Installing the sample into Watson Content Hub
+## Installing the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 

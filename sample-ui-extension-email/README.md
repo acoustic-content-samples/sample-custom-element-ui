@@ -1,12 +1,12 @@
 # Sample of UI extension for an email element
 
-A samples that extends the Authoring interface of Watson Content Hub to provide a email entry field. A custom validation ensures that the entered text is a valid email address. The email address is stored in a text field.
+A samples that extends the Authoring interface of Acoustic Content to provide a email entry field. A custom validation ensures that the entered text is a valid email address. The email address is stored in a text field.
 
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/7553535/42616034-141fc56a-85f0-11e8-85f7-4795a0f86d46.png)
 
-## Install the sample into Watson Content Hub
+## Install the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 

@@ -1,5 +1,5 @@
 /*
-Copyright IBM Corporation 2018
+Copyright 2020 Acoustic, L.P.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

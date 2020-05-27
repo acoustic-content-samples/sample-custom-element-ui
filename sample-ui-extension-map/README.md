@@ -1,6 +1,6 @@
 # Sample of UI extension to provide a Google map location selector
 
-A samples that extends the Authoring interface of Watson Content Hub to provide a Google map location selector. The location is stored in a location element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies.
+A samples that extends the Authoring interface of Acoustic Content to provide a Google map location selector. The location is stored in a location element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies.
 
 Based on the example at: https://developers.google.com/maps/documentation/javascript/examples/marker-simple
 
@@ -14,7 +14,7 @@ The Google Maps API requires an API key. See here for more information: https://
 
 ![image](https://user-images.githubusercontent.com/7553535/42616061-3109358a-85f0-11e8-84ff-d19fb2ee595b.png)
 
-## Install the sample into Watson Content Hub
+## Install the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 

@@ -1,6 +1,6 @@
 # Sample UI extension for a dropdown selection with values from a 3rd party API
 
-A sample that extends the Authoring interface of IBM Watson Content Hub to provide a dropdown selector for a content field. The available selections come from a Rest API. The dropdown can be used within a content item to select a value for the content element. The dropdown is styled to look like the other dropdowns in the WCH UI, such as for the options selection element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies. The selection is stored in a text element.
+A sample that extends the Authoring interface of Acoustic Content to provide a dropdown selector for a content field. The available selections come from a Rest API. The dropdown can be used within a content item to select a value for the content element. The dropdown is styled to look like the other dropdowns in the WCH UI, such as for the options selection element. The sample is written in 'vanilla JS' (http://vanilla-js.com/) with no framework dependencies. The selection is stored in a text element.
 
 For the sake of a simple example, the selections are Beatles songs that come from the Apple iTunes API, which does not require an API Key. The content author can select a Beatles song.
 
@@ -10,7 +10,7 @@ Typically, this sample will be customised to point to a different Rest API that 
 
 ![image](https://user-images.githubusercontent.com/7553535/42616018-0036bd60-85f0-11e8-8de9-6895b0c33003.png)
 
-## Installing the sample into Watson Content Hub
+## Installing the sample into Acoustic Content
 
 Install the latest version of wchtools-cli. Windows: npm install -g wchtools-cli Linux/Mac: sudo npm install -g wchtools-cli
 
