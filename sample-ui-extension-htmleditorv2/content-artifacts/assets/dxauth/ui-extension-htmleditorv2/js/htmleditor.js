@@ -157,7 +157,7 @@ function saveTextAsFile() {
     });
 }
 
-// Get the file contents from WCH using the assetID
+// Get the file contents from Acoustic Content using the assetID
 function wchGetFile(assetId, editor, isPublished) {
     let tenantId = "";
     wchUIExt.getTenantConfig().then(tenantConfig => {

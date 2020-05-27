@@ -2,7 +2,7 @@
 
 This sample is an HTML, JS and CSS editor element with syntax highlighting. Useful for pasting in snippets of HTML and 'inline' JS and CSS into a page. This sample is based on CodeMirror (https://codemirror.net/).
 
-The sample saves the HTML as a file asset. The content item references the file asset using a file element. The reason for this is that (1) file assets can be any size, where content item are limited in size and (2) the file assets can then be accessed via the WCH dev tools in a more natural way - as files, rather than as HTML embedded (and JSON escaped) in JSON.
+The sample saves the HTML as a file asset. The content item references the file asset using a file element. The reason for this is that (1) file assets can be any size, where content item are limited in size and (2) the file assets can then be accessed via the Acoustic Content dev tools in a more natural way - as files, rather than as HTML embedded (and JSON escaped) in JSON.
 
 The sample is a good example of a more general pattern - wrapping an asset in a content item in order to provide a custom interface for the asset.
 

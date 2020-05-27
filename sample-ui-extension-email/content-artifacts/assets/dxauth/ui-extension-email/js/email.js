@@ -55,7 +55,7 @@ function submitValue(newValue) {
  * Validate the email value, invalid when
  *   - field is required and value is empty
  *   - not a valid email address
- * @param displayValidateMessage whether it wants to display validate message in WCH container
+ * @param displayValidateMessage whether it wants to display validate message in Acoustic Content container
  */
 function validate(displayValidateMessage) {
     console.log("receive validate request");
@@ -84,7 +84,7 @@ function validate(displayValidateMessage) {
         this.classList.remove('valid', 'invalid');
     });
 
-    // get value and definition from WCH
+    // get value and definition from Acoustic Content
     wchUIExt.getDefinition().then((definition) => {
         if (definition) {
             cachedConfig = definition;
@@ -117,6 +117,6 @@ function validate(displayValidateMessage) {
         });
     });
     wchUIExt.requestResizeFrame(30);
-    // register own callback to handle the validate request from WCH
+    // register own callback to handle the validate request from Acoustic Content
     wchUIExt.on('validate', validate);
 })();

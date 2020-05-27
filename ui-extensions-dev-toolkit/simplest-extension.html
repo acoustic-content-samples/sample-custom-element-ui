@@ -105,7 +105,7 @@
   }
 
   (function(){
-    // get value and definition from WCH
+    // get value and definition from Acoustic Content
     wch.getDefinition().then((definition) => {
       if (definition) {
         typeInput.value = JSON.stringify(definition, null, 4);
@@ -117,7 +117,7 @@
       });
     });
     wch.requestResizeFrame(1000);
-    // register own callback to handle the validate request from WCH
+    // register own callback to handle the validate request from Acoustic Content
     wch.on('validate', submitValidate);
 
   })();

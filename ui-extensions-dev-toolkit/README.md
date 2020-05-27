@@ -1,6 +1,6 @@
 # Developer toolkit for building Custom user interface extensions
 
-The toolkit provides a mock of the Acoustic Content (WCH) Authoring Custom user interface extension environment that runs locally. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. No server or WCH environment is needed. Once complete, the custom user interface extension can then be pushed to WCH for final testing and use.
+The toolkit provides a mock of the Acoustic Content Authoring Custom user interface extension environment that runs locally. It allows a developer to write their extension, configure the input, inspect the output and test it in a local web page on their computer. No server or Acoustic Content environment is needed. Once complete, the custom user interface extension can then be pushed to Acoustic Content for final testing and use.
 
 Getting started:
 
@@ -19,6 +19,6 @@ Otherwise you will see a "Page requested without authorization" error when attem
 ## Toolkit features:
 Your UI extension will be rendered on the right side of the screen. In your extension, when you call wch.setElement(), you will see the value that you sent shown on the left side of the screen. When you call `wch.getElement()`, the value that is sent will be displayed on the left side as well. The same applies for the `getDefinition()` and `setValid()` API as well.
 
-Using this, you can develop your UI extension without needing to push it into the WCH environment.
+Using this, you can develop your UI extension without needing to push it into the Acoustic Content environment.
 
 
