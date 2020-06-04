@@ -69,7 +69,13 @@ To create you own Custom elements with custom user interface extensions, copy th
 Include the JavaScript library for the UI extensions in your index.html using:
 
 ```html
-<script src="https://www.digitalexperience.ibm.com/auth/ibm-wch-ui-extensions.js"></script>
+<script src="https://content-eu.goacoustic.com/auth/ibm-wch-ui-extensions.js"></script>
+```
+
+or
+
+```html
+<script src="https://content-us.goacoustic.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
 **NOTE:** If testing UI extensions on a different environment, the above URL **must** be modified to point to the correct domain:
