@@ -5,7 +5,7 @@ The toolkit provides a mock of the Acoustic Content Authoring Custom user interf
 Getting started:
 
 Option 1. If you also host your custom UI extension in github, the easiest way to use the toolkit is to load this page in a browser:
-https://pages.github.ibm.com/ibm-wch/sample-custom-element-ui/ui-extensions-dev-toolkit/extension-dev-toolkit.html
+https://github.com/acoustic-content-samples/sample-custom-element-ui/ui-extensions-dev-toolkit/extension-dev-toolkit.html
 
 Enter the github page URL of your custom UI extension in the input box and click 'Init Custom Extension'.
 
