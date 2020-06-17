@@ -78,10 +78,10 @@ or
 <script src="https://content-us.goacoustic.com/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
-**NOTE:** If testing UI extensions on a different environment, the above URL **must** be modified to point to the correct domain:
+**NOTE:** For Acoustic Content developers - If testing UI extensions on an internal environment, the above URL should be modified to point to the correct domain:
 
 ```html
-<script src="https://www.<Acoustic Content-DOMAIN>/auth/ibm-wch-ui-extensions.js"></script>
+<script src="https://<Acoustic Content Domain>/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
 For information on how to use the JavaScript library, see https://www.npmjs.com/package/@ibm-wch/ui-extensions.
