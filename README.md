@@ -52,7 +52,7 @@ Make sure that you have initialized wchtools with your user and tenant API URL u
 
 ```wchtools init```
 
-You will be prompted for your user password when deploying to the tenant. For more information, refer to https://github.com/ibm-wch/wchtools-cli.
+You will be prompted for your user password when deploying to the tenant. For more information, refer to https://github.com/acoustic-content-samples/wchtools-cli.
 
 To install all the custom element user interface extensions, run:
 
@@ -84,7 +84,7 @@ or
 <script src="https://<Acoustic Content Domain>/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
-For information on how to use the JavaScript library, see https://www.npmjs.com/package/@acoustic-content-sdk/ng-api.
+For information on how to use the JavaScript library, see https://www.npmjs.com/package/@acoustic-content/ui-extensions.
 
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
 enable the Custom UI in the content type that is using it, again, as shown in the samples.
