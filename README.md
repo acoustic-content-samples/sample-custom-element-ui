@@ -84,7 +84,7 @@ or
 <script src="https://<Acoustic Content Domain>/auth/ibm-wch-ui-extensions.js"></script>
 ```
 
-For information on how to use the JavaScript library, see https://www.npmjs.com/package/@ibm-wch/ui-extensions.
+For information on how to use the JavaScript library, see https://www.npmjs.com/package/@acoustic-content-sdk/ng-api.
 
 Write your Custom UI and push the assets into the hub, as per the above instructions for the samples. Finally,
 enable the Custom UI in the content type that is using it, again, as shown in the samples.
