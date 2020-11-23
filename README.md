@@ -69,19 +69,19 @@ To create you own Custom elements with custom user interface extensions, copy th
 Include the JavaScript library for the UI extensions in your index.html using:
 
 ```html
-<script src="https://content-eu.goacoustic.com/auth/ibm-wch-ui-extensions.js"></script>
+<script src="https://content-eu.goacoustic.com/auth/acoustic-content-ui-extensions.js"></script>
 ```
 
 or
 
 ```html
-<script src="https://content-us.goacoustic.com/auth/ibm-wch-ui-extensions.js"></script>
+<script src="https://content-us.goacoustic.com/auth/acoustic-content-ui-extensions.js"></script>
 ```
 
 **NOTE:** For Acoustic Content developers - If testing UI extensions on an internal environment, the above URL should be modified to point to the correct domain:
 
 ```html
-<script src="https://<Acoustic Content Domain>/auth/ibm-wch-ui-extensions.js"></script>
+<script src="https://<Acoustic Content Domain>/auth/acoustic-content-ui-extensions.js"></script>
 ```
 
 For information on how to use the JavaScript library, see https://www.npmjs.com/package/@acoustic-content/ui-extensions.
