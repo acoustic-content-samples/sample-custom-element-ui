@@ -60,7 +60,7 @@ To install all the custom element user interface extensions, run:
 
 ```./install.sh```
 
-Enter you IBM ID password at the prompts.
+Enter you password at the prompts.
 
 ## Creating you own Custom elements
 
